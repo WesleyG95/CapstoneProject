@@ -1,0 +1,421 @@
+fileFormatVersion: 2
+guid: 6112608a47c2d5f449ec936b4cf9576d
+timeCreated: 1458570426
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: RobotBoyWalkSprite_0
+    21300002: RobotBoyWalkSprite_1
+    21300004: RobotBoyWalkSprite_2
+    21300006: RobotBoyWalkSprite_3
+    21300008: RobotBoyWalkSprite_4
+    21300010: RobotBoyWalkSprite_5
+    21300012: RobotBoyWalkSprite_6
+    21300014: RobotBoyWalkSprite_7
+    21300016: RobotBoyWalkSprite_8
+    21300018: RobotBoyWalkSprite_9
+    21300020: RobotBoyWalkSprite_10
+    21300022: RobotBoyWalkSprite_11
+    21300024: RobotBoyWalkSprite_12
+    21300026: RobotBoyWalkSprite_13
+    21300028: RobotBoyWalkSprite_14
+    21300030: RobotBoyWalkSprite_15
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: RobotBoyWalkSprite_0
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 1784
+        width: 104
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -52, y: 112}
+        - {x: -52, y: -112}
+        - {x: 52, y: -112}
+        - {x: 52, y: 112}
+    - name: RobotBoyWalkSprite_1
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 1786
+        width: 98
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6, y: -83.5}
+        - {x: -9, y: -94.5}
+        - {x: -7, y: -110.5}
+        - {x: 2, y: -110.5}
+        - {x: 7, y: -109.5}
+        - {x: 9, y: -110.5}
+        - {x: 49, y: -110.5}
+        - {x: 49, y: 105.5}
+        - {x: 33, y: 110.5}
+        - {x: -44, y: 110.5}
+        - {x: -49, y: 105.5}
+        - {x: -49, y: -110.5}
+        - {x: -35, y: -110.5}
+        - {x: -11, y: -78.5}
+        - {x: -7, y: -79.5}
+        - {x: -7, y: -78.5}
+    - name: RobotBoyWalkSprite_2
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 1787
+        width: 96
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: -92.5}
+        - {x: 48, y: 18.5}
+        - {x: 48, y: 89.5}
+        - {x: 37, y: 109.5}
+        - {x: -34, y: 109.5}
+        - {x: -48, y: 98.5}
+        - {x: -48, y: -109.5}
+        - {x: 24, y: -109.5}
+        - {x: 26, y: -104.5}
+        - {x: 24, y: -95.5}
+    - name: RobotBoyWalkSprite_3
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 1786
+        width: 92
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46, y: 13}
+        - {x: 46, y: 105}
+        - {x: 20, y: 110}
+        - {x: -34, y: 110}
+        - {x: -46, y: 95}
+        - {x: -46, y: -110}
+        - {x: 15, y: -110}
+        - {x: 20, y: -108}
+        - {x: 15, y: -98}
+        - {x: 11, y: -96}
+    - name: RobotBoyWalkSprite_4
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 1779
+        width: 88
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: -107.5}
+        - {x: 2, y: -108.5}
+        - {x: 7, y: -106.5}
+        - {x: 44, y: 16.5}
+        - {x: 44, y: 108.5}
+        - {x: 34, y: 114.5}
+        - {x: -44, y: 114.5}
+        - {x: -44, y: -108.5}
+        - {x: -37, y: -113.5}
+        - {x: -33, y: -114.5}
+        - {x: -19, y: -114.5}
+        - {x: -18, y: -110.5}
+        - {x: -18, y: -105.5}
+    - name: RobotBoyWalkSprite_5
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1778
+        width: 89
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 31.5, y: 115}
+        - {x: -39.5, y: 115}
+        - {x: -44.5, y: 103}
+        - {x: -44.5, y: -108}
+        - {x: -12.5, y: -115}
+        - {x: 6.5, y: -115}
+        - {x: 12.5, y: -107}
+        - {x: 44.5, y: -10}
+        - {x: 44.5, y: 99}
+    - name: RobotBoyWalkSprite_6
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 1788
+        width: 91
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 44.5, y: 111}
+        - {x: -45.5, y: 111}
+        - {x: -45.5, y: -106}
+        - {x: -35.5, y: -111}
+        - {x: 35.5, y: -111}
+        - {x: 45.5, y: -56}
+        - {x: 45.5, y: 107}
+    - name: RobotBoyWalkSprite_7
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1516
+        width: 95
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47.5, y: -91}
+        - {x: 47.5, y: 110}
+        - {x: -35.5, y: 110}
+        - {x: -47.5, y: 104}
+        - {x: -47.5, y: -110}
+        - {x: 22.5, y: -110}
+        - {x: 42.5, y: -103}
+        - {x: 46.5, y: -101}
+    - name: RobotBoyWalkSprite_8
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 1515
+        width: 94
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47, y: -19.5}
+        - {x: 47, y: 109.5}
+        - {x: 42, y: 110.5}
+        - {x: -42, y: 110.5}
+        - {x: -47, y: 102.5}
+        - {x: -47, y: -6.5}
+        - {x: -43, y: -66.5}
+        - {x: -23, y: -67.5}
+        - {x: -19, y: -67.5}
+        - {x: -21, y: -67.5}
+        - {x: -28, y: -69.5}
+        - {x: -44, y: -75.5}
+        - {x: -47, y: -77.5}
+        - {x: -47, y: -98.5}
+        - {x: -30, y: -110.5}
+        - {x: 26, y: -110.5}
+        - {x: 46, y: -99.5}
+        - {x: 45, y: -93.5}
+        - {x: 40, y: -86.5}
+    - name: RobotBoyWalkSprite_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1511
+        width: 89
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41.5, y: 112.5}
+        - {x: -44.5, y: 112.5}
+        - {x: -44.5, y: -61.5}
+        - {x: -40.5, y: -64.5}
+        - {x: -28.5, y: -69.5}
+        - {x: -19.5, y: -65.5}
+        - {x: -22.5, y: -69.5}
+        - {x: -34.5, y: -70.5}
+        - {x: -41.5, y: -69.5}
+        - {x: -44.5, y: -72.5}
+        - {x: -44.5, y: -96.5}
+        - {x: -29.5, y: -112.5}
+        - {x: 16.5, y: -112.5}
+        - {x: 39.5, y: -101.5}
+        - {x: 44.5, y: -70.5}
+        - {x: 44.5, y: 100.5}
+    - name: RobotBoyWalkSprite_10
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 1510
+        width: 88
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -44, y: 111}
+        - {x: -44, y: -69}
+        - {x: -29, y: -66}
+        - {x: -24, y: -67}
+        - {x: -29, y: -67}
+        - {x: -44, y: -70}
+        - {x: -44, y: -74}
+        - {x: -40, y: -94}
+        - {x: -29, y: -111}
+        - {x: 13, y: -111}
+        - {x: 23, y: -107}
+        - {x: 44, y: -48}
+        - {x: 44, y: 111}
+    - name: RobotBoyWalkSprite_11
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 1508
+        width: 86
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32, y: 112}
+        - {x: -43, y: 112}
+        - {x: -43, y: -59}
+        - {x: -35, y: -62}
+        - {x: -25, y: -66}
+        - {x: -22, y: -66}
+        - {x: -26, y: -66}
+        - {x: -41, y: -69}
+        - {x: -41, y: -110}
+        - {x: -35, y: -112}
+        - {x: 21, y: -112}
+        - {x: 43, y: -31}
+        - {x: 43, y: 90}
+    - name: RobotBoyWalkSprite_12
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1506
+        width: 90
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -32, y: 113}
+        - {x: -45, y: 102}
+        - {x: -45, y: -107}
+        - {x: -33, y: -113}
+        - {x: 23, y: -113}
+        - {x: 45, y: -20}
+        - {x: 45, y: 99}
+        - {x: 40, y: 113}
+    - name: RobotBoyWalkSprite_13
+      rect:
+        serializedVersion: 2
+        x: 1735
+        y: 1504
+        width: 97
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 46.5, y: -10.5}
+        - {x: 48.5, y: 0.5}
+        - {x: 48.5, y: 114.5}
+        - {x: -29.5, y: 114.5}
+        - {x: -48.5, y: 106.5}
+        - {x: -48.5, y: -95.5}
+        - {x: -24.5, y: -114.5}
+        - {x: -7.5, y: -114.5}
+        - {x: -6.5, y: -106.5}
+        - {x: 10.5, y: -110.5}
+        - {x: 28.5, y: -108.5}
+    - name: RobotBoyWalkSprite_14
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 1231
+        width: 102
+        height: 229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 114.5}
+        - {x: -44, y: 90.5}
+        - {x: -51, y: -39.5}
+        - {x: -51, y: -85.5}
+        - {x: -33, y: -114.5}
+        - {x: 40, y: -114.5}
+        - {x: 51, y: -113.5}
+        - {x: 51, y: 105.5}
+        - {x: 47, y: 114.5}
+    - name: RobotBoyWalkSprite_15
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 1236
+        width: 105
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43.5, y: 112}
+        - {x: -52.5, y: 105}
+        - {x: -52.5, y: -112}
+        - {x: 52.5, y: -112}
+        - {x: 52.5, y: 109}
+        - {x: 37.5, y: 112}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
