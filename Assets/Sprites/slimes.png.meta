@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: 1c373dc3bb968ad44900364fb12b7897
+timeCreated: 1459180334
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: slimes_0
+    21300002: slimes_1
+    21300004: slimes_2
+    21300006: slimes_3
+    21300008: slimes_4
+    21300010: slimes_5
+    21300012: slimes_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: slimes_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 148
+        width: 110
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 38}
+        - {x: -55, y: 18}
+        - {x: -55, y: -38}
+        - {x: 55, y: -38}
+        - {x: 55, y: 29}
+        - {x: 24, y: 38}
+    - name: slimes_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 148
+        width: 124
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: 34.5}
+        - {x: -61, y: 27.5}
+        - {x: -62, y: 22.5}
+        - {x: -62, y: -34.5}
+        - {x: 57, y: -34.5}
+        - {x: 62, y: -29.5}
+        - {x: 62, y: 9.5}
+        - {x: 37, y: 34.5}
+    - name: slimes_3
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 148
+        width: 145
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.5, y: 38}
+        - {x: -60.5, y: 5}
+        - {x: -60.5, y: -34}
+        - {x: -58.5, y: -38}
+        - {x: 66.5, y: -38}
+        - {x: 72.5, y: -37}
+        - {x: 72.5, y: 38}
+      - - {x: -72.5, y: -22}
+        - {x: -72.5, y: -33}
+        - {x: -65.5, y: -33}
+        - {x: -63.5, y: -31}
+        - {x: -63.5, y: -24}
+        - {x: -65.5, y: -22}
+    - name: slimes_4
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 45
+        width: 69
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.5, y: 27.5}
+        - {x: -31.5, y: 27.5}
+        - {x: -34.5, y: 23.5}
+        - {x: -34.5, y: -22.5}
+        - {x: -17.5, y: -27.5}
+        - {x: 25.5, y: -27.5}
+        - {x: 33.5, y: -22.5}
+        - {x: 34.5, y: -14.5}
+        - {x: 34.5, y: 17.5}
+    - name: slimes_5
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 38
+        width: 110
+        height: 76
+      alignment: 9
+      pivot: {x: 0.405561, y: 0.49042723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.6117096, y: -32.27247}
+        - {x: 0.3882904, y: -37.27247}
+        - {x: 26.38829, y: -37.27247}
+        - {x: 26.38829, y: -8.272469}
+        - {x: 6.3882904, y: -8.272469}
+        - {x: -5.6117096, y: -22.272469}
+      - - {x: -43.61171, y: -0.27246857}
+        - {x: -44.61171, y: -3.2724686}
+        - {x: -44.61171, y: -27.272469}
+        - {x: -42.61171, y: -32.27247}
+        - {x: -13.61171, y: -32.27247}
+        - {x: 5.3882904, y: -14.272469}
+        - {x: 5.3882904, y: -0.27246857}
+      - - {x: 22.38829, y: -8.272469}
+        - {x: 22.38829, y: -23.272469}
+        - {x: 32.38829, y: -32.27247}
+        - {x: 60.38829, y: -32.27247}
+        - {x: 65.38829, y: -27.272469}
+        - {x: 65.38829, y: -14.272469}
+        - {x: 61.38829, y: -8.272469}
+      - - {x: 36.38829, y: 26.727531}
+        - {x: 18.38829, y: 12.727531}
+        - {x: 15.38829, y: 6.7275314}
+        - {x: 15.38829, y: -6.2724686}
+        - {x: 58.38829, y: -6.2724686}
+        - {x: 60.38829, y: -5.2724686}
+        - {x: 60.38829, y: 23.727531}
+        - {x: 59.38829, y: 26.727531}
+      - - {x: 28.38829, y: 38.72753}
+        - {x: 8.38829, y: 38.72753}
+        - {x: 1.3882904, y: 31.727531}
+        - {x: -32.61171, y: 27.727531}
+        - {x: -40.61171, y: 19.727531}
+        - {x: -40.61171, y: -3.2724686}
+        - {x: -38.61171, y: -5.2724686}
+        - {x: -4.6117096, y: -5.2724686}
+        - {x: 26.38829, y: 3.7275314}
+        - {x: 32.38829, y: 19.727531}
+        - {x: 32.38829, y: 37.72753}
+    - name: slimes_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 24
+        width: 138
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -25.5}
+        - {x: -9, y: -34.5}
+        - {x: -9, y: -48.5}
+        - {x: 23, y: -48.5}
+        - {x: 23, y: -29.5}
+        - {x: 17, y: -25.5}
+      - - {x: -66, y: -12.5}
+        - {x: -69, y: -13.5}
+        - {x: -69, y: -31.5}
+        - {x: -66, y: -37.5}
+        - {x: -46, y: -37.5}
+        - {x: -39, y: -30.5}
+        - {x: -39, y: -18.5}
+        - {x: -45, y: -12.5}
+      - - {x: 43, y: -12.5}
+        - {x: 39, y: -18.5}
+        - {x: 39, y: -35.5}
+        - {x: 42, y: -37.5}
+        - {x: 63, y: -37.5}
+        - {x: 66, y: -36.5}
+        - {x: 69, y: -30.5}
+        - {x: 69, y: -18.5}
+        - {x: 62, y: -12.5}
+      - - {x: 33, y: 29.5}
+        - {x: 25, y: 20.5}
+        - {x: 25, y: 5.5}
+        - {x: 33, y: -2.5}
+        - {x: 37, y: -3.5}
+        - {x: 49, y: -3.5}
+        - {x: 57, y: 4.5}
+        - {x: 57, y: 22.5}
+        - {x: 50, y: 29.5}
+      - - {x: -54, y: 36.5}
+        - {x: -57, y: 35.5}
+        - {x: -57, y: 10.5}
+        - {x: -51, y: 4.5}
+        - {x: -34, y: 4.5}
+        - {x: -25, y: 11.5}
+        - {x: -25, y: 31.5}
+        - {x: -28, y: 36.5}
+      - - {x: -2, y: 48.5}
+        - {x: -2, y: 29.5}
+        - {x: 6, y: 24.5}
+        - {x: 25, y: 24.5}
+        - {x: 30, y: 32.5}
+        - {x: 30, y: 48.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
