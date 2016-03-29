@@ -3,7 +3,6 @@ using System.Collections;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-    // Normal Movements Variables
     public float speed = 10;
     bool facingRight = true;
 
@@ -19,12 +18,16 @@ public class NewBehaviourScript : MonoBehaviour {
         float moveH = Input.GetAxis("Horizontal");
         float moveV = Input.GetAxis("Vertical");
 
+        //set SpeedH to the absolute value of moveH
         anim.SetFloat("SpeedH", Mathf.Abs(moveH));
+
+        //set SpeedV to the value of moveV
         anim.SetFloat("SpeedV", moveV);
 
-        // Move senteces
+        //move
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveH * speed, moveV * speed);
 
+        //check to see if the player needs to be flipped
         if (moveH > 0 && !facingRight)
         {
             Flip();
