@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour
+{
 
     public float speed = 10;
     bool facingRight = true;
