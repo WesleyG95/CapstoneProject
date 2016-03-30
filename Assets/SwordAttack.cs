@@ -3,41 +3,29 @@ using System.Collections;
 
 public class SwordAttack : MonoBehaviour {
 
-    int attackFrame = 0;
+    //speed of the sword rotation
+    public float swordRotation = 13;
+    public float lowestSwordLocation = 230;
+    public float highestSwordLocation = 330;
+    bool isAttacking = false;
 
-    //represents how far you are rotating the sword
-    int swordRotation = 5;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        Transform sword = GetComponent<Transform>();
-
-        //sword.rotation.z = new Vector3(0, 0, 0);
-        /*
+        float swordZ = transform.eulerAngles.z;
         bool attack = Input.GetKeyDown(KeyCode.Space);
 
-        if (attack)
+        if (attack || isAttacking)
         {
-            attackFrame++;
+            isAttacking = true;
+            if(swordZ > lowestSwordLocation)
+            {
+                transform.Rotate(Vector3.back, swordRotation);
+            }
+            else
+            {
+                isAttacking = false;
+                transform.eulerAngles = new Vector3(0, 0, highestSwordLocation);
+            }
         }
-
-        if (attackFrame >= 1 && attackFrame <= 5)
-        {
-            sword.rotation = new Quaternion(0, 0, swordRotation, 0);
-            attackFrame++;
-        }
-
-        if (attackFrame > 5)
-        {
-            attackFrame = 0;
-            sword.rotation = new Quaternion(0, 0, 20, 0);
-        }
-         */
     }
 }
