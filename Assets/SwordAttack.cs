@@ -12,6 +12,7 @@ public class SwordAttack : MonoBehaviour {
 
     bool isAttacking = false;
 
+    Transform t;
     Animator anim;
 
     void Start()
@@ -19,19 +20,36 @@ public class SwordAttack : MonoBehaviour {
         startingSwordLocation = transform.eulerAngles.z;
         endingSwordLocation = startingSwordLocation - longestSwordSwing;
         anim = transform.parent.GetComponent<Animator>();
+        t = transform.parent.GetComponent<Transform>();
     }
 
     void Update()
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
+        float swordZ = transform.eulerAngles.z;
+        bool attack = Input.GetKeyDown(KeyCode.Space);
+
         if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.WalkDown"))
         {
             //change location of sword here
+            //this.transform.Translate(0.005f, 0, 0);
+            //this.transform.position = new Vector3(-0.05f, -0.05f, 1);
+            this.transform.position = t.transform.position + new Vector3(-0.05f, -0.05f, 0);
+            this.transform.rotation = new Quaternion(0, 0, 0, 0);
+            Debug.Log("Down");
         }
-
-        float swordZ = transform.eulerAngles.z;
-        bool attack = Input.GetKeyDown(KeyCode.Space);
+        else if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.WalkUp"))
+        {
+            Debug.Log("Up");
+        }
+        else if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.WalkH"))
+        {
+            this.transform.position = t.transform.position + new Vector3(0.015f, -0.06f, 0);
+            swordZ = 310.810f;
+            transform.eulerAngles = new Vector3(0, 0, 310.81f);
+            Debug.Log("H");
+        }
 
         if (attack || isAttacking)
         {
