@@ -8,67 +8,135 @@ public class SwordAttack : MonoBehaviour {
     public float longestSwordSwing = 100;
     float startingSwordLocation = 0;
     float endingSwordLocation = 0;
-    float currentSwordSwing = 0;
+    string currentDirection = "";
 
     bool isAttacking = false;
 
-    Transform t;
+    float swordDownX = -0.0579f;
+    float swordDownY = -0.046f;
+
+    float swordDownAttackZ = 140f;
+
+    float swordUpX = 0.0579f;
+    float swordUpY = -0.046f;
+
+    float swordHX = 0.014f;
+    float swordHY = -0.064f;
+    
     Animator anim;
+    Transform playerT;
 
     void Start()
     {
         startingSwordLocation = transform.eulerAngles.z;
         endingSwordLocation = startingSwordLocation - longestSwordSwing;
         anim = transform.parent.GetComponent<Animator>();
-        t = transform.parent.GetComponent<Transform>();
+        playerT = transform.parent.GetComponent<Transform>();
     }
 
     void Update()
     {
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-
-        float swordZ = transform.eulerAngles.z;
+        float swordZ;
         bool attack = Input.GetKeyDown(KeyCode.Space);
 
-        if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.WalkDown"))
+        currentDirection = transform.parent.GetComponent<PlayerScript>().currentDirection;
+        adjustSword(currentDirection);
+
+        swordZ = transform.eulerAngles.z;
+
+        if (currentDirection == "down" && attack)
         {
-            //change location of sword here
-            //this.transform.Translate(0.005f, 0, 0);
-            //this.transform.position = new Vector3(-0.05f, -0.05f, 1);
-            this.transform.position = t.transform.position + new Vector3(-0.05f, -0.05f, 0);
-            this.transform.rotation = new Quaternion(0, 0, 0, 0);
-            Debug.Log("Down");
-        }
-        else if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.WalkUp"))
-        {
-            Debug.Log("Up");
-        }
-        else if (stateInfo.fullPathHash == Animator.StringToHash("Base Layer.WalkH"))
-        {
-            this.transform.position = t.transform.position + new Vector3(0.015f, -0.06f, 0);
-            swordZ = 310.810f;
-            transform.eulerAngles = new Vector3(0, 0, 310.81f);
-            Debug.Log("H");
+            transform.eulerAngles = new Vector3(0, 0, swordDownAttackZ);
+            startingSwordLocation = transform.eulerAngles.z;
+            endingSwordLocation = startingSwordLocation + longestSwordSwing;
         }
 
         if (attack || isAttacking)
         {
             isAttacking = true;
-            if (swordZ > endingSwordLocation)
+
+            if (currentDirection == "down" || currentDirection == "up")
             {
-                transform.Rotate(Vector3.back, swordRotation);
-                currentSwordSwing += swordRotation;
+                if (swordZ < endingSwordLocation)
+                {
+                    transform.Rotate(Vector3.forward, swordRotation);
+                }
+                else
+                {
+                    isAttacking = false;
+                    transform.eulerAngles = new Vector3(0, 0, startingSwordLocation);
+                }
             }
             else
             {
-                isAttacking = false;
-                transform.eulerAngles = new Vector3(0, 0, startingSwordLocation);
+                if (swordZ > endingSwordLocation)
+                {
+                    transform.Rotate(Vector3.back, swordRotation);
+                }
+                else
+                {
+                    isAttacking = false;
+                    transform.eulerAngles = new Vector3(0, 0, startingSwordLocation);
+                }
+            }
+        }
+    }
+
+    void adjustSword(string direction)
+    {
+        int sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
+
+        if (direction == "down")
+        {
+            //moves sword
+            this.transform.position = playerT.transform.position + new Vector3(swordDownX, swordDownY, 0);
+
+            //changes sorting order of the sword
+            sortingOrder = 2;
+
+            //changes rotation of sword
+            if (isAttacking)
+            {
+                //transform.eulerAngles = new Vector3(0, 0, swordDownAttackZ);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+        }
+        else if (direction == "up")
+        {
+            //moves sword
+            this.transform.position = playerT.transform.position + new Vector3(swordUpX, swordUpY, 0);
+
+            //changes sorting order of the sword
+            sortingOrder = 0;
+
+            //changes rotation of sword
+            if (!isAttacking)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                startingSwordLocation = transform.eulerAngles.z;
+                endingSwordLocation = longestSwordSwing;
             }
         }
         else
         {
-            startingSwordLocation = transform.eulerAngles.z;
-            endingSwordLocation = startingSwordLocation - longestSwordSwing;
+            //moves sword
+            this.transform.position = playerT.transform.position + new Vector3(swordHX, swordHY, 0);
+
+            //changes sorting order of the sword
+            sortingOrder = 0;
+
+            //changes rotation of sword
+            if (!isAttacking)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 310.81f);
+                startingSwordLocation = transform.eulerAngles.z;
+                endingSwordLocation = startingSwordLocation - longestSwordSwing;
+            }
         }
+
+        GetComponent<SpriteRenderer>().sortingOrder = sortingOrder;
     }
 }
