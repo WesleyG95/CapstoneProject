@@ -1,0 +1,422 @@
+fileFormatVersion: 2
+guid: 23901dc2aae29fb4d975d1cc6a7e698a
+timeCreated: 1459724405
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: furnitire2 Redshrike_0
+    21300002: furnitire2 Redshrike_1
+    21300004: furnitire2 Redshrike_2
+    21300006: furnitire2 Redshrike_3
+    21300008: furnitire2 Redshrike_4
+    21300010: furnitire2 Redshrike_5
+    21300012: furnitire2 Redshrike_6
+    21300014: furnitire2 Redshrike_7
+    21300016: furnitire2 Redshrike_8
+    21300018: furnitire2 Redshrike_9
+    21300020: furnitire2 Redshrike_10
+    21300022: furnitire2 Redshrike_11
+    21300024: furnitire2 Redshrike_12
+    21300026: furnitire2 Redshrike_13
+    21300028: furnitire2 Redshrike_14
+    21300030: furnitire2 Redshrike_15
+    21300032: furnitire2 Redshrike_16
+    21300034: furnitire2 Redshrike_17
+    21300036: furnitire2 Redshrike_18
+    21300038: furnitire2 Redshrike_19
+    21300040: furnitire2 Redshrike_20
+    21300042: furnitire2 Redshrike_21
+    21300044: furnitire2 Redshrike_22
+    21300046: furnitire2 Redshrike_23
+    21300048: furnitire2 Redshrike_24
+    21300050: furnitire2 Redshrike_25
+    21300052: furnitire2 Redshrike_26
+    21300054: furnitire2 Redshrike_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: furnitire2 Redshrike_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 116
+        width: 176
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -88, y: 48}
+        - {x: -88, y: -48}
+        - {x: 88, y: -48}
+        - {x: 88, y: 48}
+      - - {x: -78, y: 13}
+        - {x: 78, y: 13}
+        - {x: 78, y: -14}
+        - {x: 46, y: -14}
+        - {x: 45, y: -13}
+        - {x: 36, y: -13}
+        - {x: 35, y: -14}
+        - {x: -2, y: -14}
+        - {x: -3, y: -13}
+        - {x: -12, y: -13}
+        - {x: -13, y: -14}
+        - {x: -50, y: -14}
+        - {x: -51, y: -13}
+        - {x: -60, y: -13}
+        - {x: -61, y: -14}
+        - {x: -78, y: -14}
+    - name: furnitire2 Redshrike_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 177
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 16}
+        - {x: -16, y: -16}
+        - {x: 16, y: -16}
+        - {x: 16, y: 16}
+    - name: furnitire2 Redshrike_2
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 123
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 132
+        width: 7
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_4
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 132
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_5
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 87
+        width: 16
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_6
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 87
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_7
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 87
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_8
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 78
+        width: 47
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_9
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 47
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 32}
+        - {x: -32, y: 31}
+        - {x: -32, y: -32}
+        - {x: 32, y: -32}
+        - {x: 32, y: 32}
+    - name: furnitire2 Redshrike_10
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 71
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 70
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_12
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 70
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 70
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_14
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 51
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_15
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 51
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_16
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 37
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_17
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 37
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_18
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 44
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_19
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 46
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_20
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 44
+        width: 16
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_21
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 37
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_22
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 37
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_23
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 7
+        width: 44
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 20
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_25
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 20
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_26
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 19
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: furnitire2 Redshrike_27
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 19
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
