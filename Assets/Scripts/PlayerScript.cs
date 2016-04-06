@@ -36,13 +36,23 @@ public class PlayerScript : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveH * speed, moveV * speed);
 
         //check to see if the player needs to be flipped
-        if (moveH > 0 && !facingRight)
+        if (currentDirection == "right" || currentDirection == "left")
         {
-            Flip();
+            if (moveH > 0 && !facingRight)
+            {
+                Flip();
+            }
+            else if (moveH < 0 && facingRight)
+            {
+                Flip();
+            }
         }
-        else if (moveH < 0 && facingRight)
+        else
         {
-            Flip();
+            if (!facingRight)
+            {
+                Flip();
+            }
         }
     }
 
