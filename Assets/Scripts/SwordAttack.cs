@@ -5,9 +5,9 @@ public class SwordAttack : MonoBehaviour {
 
     //speed of the sword rotation
     public float swordRotation = 13;
-    public float longestSwordSwing = 100;
-    float startingSwordLocation = 0;
-    float endingSwordLocation = 0;
+    public float totalAttackFrames = 8;
+
+    float currentAttackFrame = 0;
     string currentDirection = "";
 
     bool isAttacking = false;
@@ -30,14 +30,10 @@ public class SwordAttack : MonoBehaviour {
     float swordRightX = 0.014f;
     float swordRightY = -0.064f;
 
-    Animator anim;
     Transform playerT;
 
     void Start()
     {
-        startingSwordLocation = transform.eulerAngles.z;
-        endingSwordLocation = startingSwordLocation - longestSwordSwing;
-        anim = transform.parent.GetComponent<Animator>();
         playerT = transform.parent.GetComponent<Transform>();
     }
 
@@ -57,6 +53,11 @@ public class SwordAttack : MonoBehaviour {
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().enabled = false;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D enemy)
+    {
+        Debug.Log("test");
     }
 
     void attack(string direction)
@@ -79,9 +80,6 @@ public class SwordAttack : MonoBehaviour {
 
                 //change rotation of sword
                 transform.eulerAngles = new Vector3(0, 0, swordDownAttackZ);
-                startingSwordLocation = transform.eulerAngles.z;
-
-                endingSwordLocation = startingSwordLocation + longestSwordSwing;
             }
             else if (direction == "up")
             {
@@ -93,14 +91,7 @@ public class SwordAttack : MonoBehaviour {
 
                 //change rotation of sword
                 transform.eulerAngles = new Vector3(0, 0, swordUpAttackZ);
-                startingSwordLocation = transform.eulerAngles.z;
 
-                endingSwordLocation = startingSwordLocation + longestSwordSwing;
-
-                if (endingSwordLocation > 360)
-                {
-                    endingSwordLocation -= 360;
-                }
             }
             else if (direction == "left")
             {
@@ -112,9 +103,6 @@ public class SwordAttack : MonoBehaviour {
 
                 //change rotation of sword
                 transform.eulerAngles = new Vector3(0, 0, swordLeftAttackZ);
-                startingSwordLocation = transform.eulerAngles.z;
-
-                endingSwordLocation = startingSwordLocation + longestSwordSwing;
             }
             else
             {
@@ -126,37 +114,21 @@ public class SwordAttack : MonoBehaviour {
 
                 //change rotation of sword
                 transform.eulerAngles = new Vector3(0, 0, swordRightAttackZ);
-                startingSwordLocation = transform.eulerAngles.z;
-
-                endingSwordLocation = startingSwordLocation + longestSwordSwing;
             }
         }
         else
         {
-            if (currentDirection == "up")
+            if (currentAttackFrame < totalAttackFrames)
             {
-                if (swordZ > endingSwordLocation)
-                {
-                    transform.Rotate(Vector3.forward, swordRotation);
-                }
-                else
-                {
-                    isAttacking = false;
-                    transform.eulerAngles = new Vector3(0, 0, startingSwordLocation);
-                }
+                transform.Rotate(Vector3.forward, swordRotation);
             }
             else
             {
-                if (swordZ < endingSwordLocation)
-                {
-                    transform.Rotate(Vector3.forward, swordRotation);
-                }
-                else
-                {
-                    isAttacking = false;
-                    transform.eulerAngles = new Vector3(0, 0, startingSwordLocation);
-                }
+                currentAttackFrame = 0;
+                isAttacking = false;
             }
+
+            currentAttackFrame++;
         }
 
         startAttack = false;

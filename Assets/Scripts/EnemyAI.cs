@@ -6,6 +6,7 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public int moveSpeed;
     public int viewDistance;
+    public int health;
     bool facingRight = true;
 
     Animator anim;
@@ -17,16 +18,21 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+
     }
 
     void FixedUpdate()
     {
+        if(health <= 0)
+        {
+
+        }
         float playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
 
         if ((target != null) && (playerDistance <= viewDistance))
         {
             //Move Towards Target
-            transform.position += (target.position - transform.position).normalized * moveSpeed * Time.deltaTime;
+            transform.position += (target.position - transform.position).normalized * moveSpeed * 0.005f;
 
             float moveH = (target.position - transform.position).normalized.x;
             float moveV = (target.position - transform.position).normalized.y;
