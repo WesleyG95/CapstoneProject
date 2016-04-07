@@ -9,6 +9,9 @@ public class PlayerScript : MonoBehaviour
     public int health = 100;
     bool facingRight = true;
 
+    float moveH;
+    float moveV;
+
     Animator anim;
 
     void Start()
@@ -17,15 +20,15 @@ public class PlayerScript : MonoBehaviour
         currentDirection = "right";
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        moveH = Input.GetAxis("Horizontal");
+        moveV = Input.GetAxis("Vertical");
+
         if (health <= 0)
         {
             Destroy(gameObject);
         }
-
-        float moveH = Input.GetAxis("Horizontal");
-        float moveV = Input.GetAxis("Vertical");
 
         if (moveV != 0 || moveH != 0)
         {
@@ -37,6 +40,10 @@ public class PlayerScript : MonoBehaviour
 
         //set SpeedV to the value of moveV
         anim.SetFloat("SpeedV", moveV);
+    }
+
+    void FixedUpdate()
+    {
 
         //move
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveH * speed, moveV * speed);
@@ -70,7 +77,7 @@ public class PlayerScript : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void OnCollisionEnter2D(Collision2D enemy)
+    void OnCollisionStay2D(Collision2D enemy)
     {
         if (enemy.gameObject.tag == "Enemy")
         {
@@ -81,6 +88,10 @@ public class PlayerScript : MonoBehaviour
 
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D enemy)
+    {
     }
 
     string getDirection(float moveH, float moveV)
