@@ -6,7 +6,8 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public int moveSpeed;
     public int viewDistance;
-    public int health;
+    public int health = 100;
+    public int damage = 10;
     bool facingRight = true;
 
     Animator anim;
@@ -25,7 +26,7 @@ public class EnemyAI : MonoBehaviour
     {
         if(health <= 0)
         {
-
+            Destroy(gameObject);
         }
         float playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
 

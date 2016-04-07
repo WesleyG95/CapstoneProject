@@ -6,6 +6,7 @@ public class SwordAttack : MonoBehaviour {
     //speed of the sword rotation
     public float swordRotation = 13;
     public float totalAttackFrames = 8;
+    public int damage = 10;
 
     float currentAttackFrame = 0;
     string currentDirection = "";
@@ -57,7 +58,15 @@ public class SwordAttack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D enemy)
     {
-        Debug.Log("test");
+        if (enemy.tag == "Enemy")
+        {
+            enemy.GetComponent<EnemyAI>().health -= damage;
+
+            float xdif = enemy.transform.position.x - transform.position.x;
+            float ydif = enemy.transform.position.y - transform.position.y;
+
+            enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
+        }
     }
 
     void attack(string direction)

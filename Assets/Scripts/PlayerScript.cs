@@ -6,6 +6,7 @@ public class PlayerScript : MonoBehaviour
 
     public float speed = 10;
     public string currentDirection = "";
+    public int health = 100;
     bool facingRight = true;
 
     Animator anim;
@@ -18,6 +19,11 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         float moveH = Input.GetAxis("Horizontal");
         float moveV = Input.GetAxis("Vertical");
 
@@ -62,6 +68,19 @@ public class PlayerScript : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    void OnCollisionEnter2D(Collision2D enemy)
+    {
+        if (enemy.gameObject.tag == "Enemy")
+        {
+            health -= enemy.gameObject.GetComponent<EnemyAI>().damage;
+
+            float xdif = transform.position.x - enemy.transform.position.x;
+            float ydif = transform.position.y - enemy.transform.position.y;
+
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
+        }
     }
 
     string getDirection(float moveH, float moveV)
