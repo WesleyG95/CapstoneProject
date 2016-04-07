@@ -24,38 +24,41 @@ public class EnemyAI : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(health <= 0)
+        if (target != null)
         {
-            Destroy(gameObject);
-        }
-        float playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
-
-        if ((target != null) && (playerDistance <= viewDistance))
-        {
-            //Move Towards Target
-            transform.position += (target.position - transform.position).normalized * moveSpeed * 0.005f;
-
-            float moveH = (target.position - transform.position).normalized.x;
-            float moveV = (target.position - transform.position).normalized.y;
-
-            anim.SetFloat("EnemySpeedH", Mathf.Abs(moveH));
-            anim.SetFloat("EnemySpeedV", moveV);
-
-            if (moveH > 0 && !facingRight)
+            if (health <= 0)
             {
-                Flip();
+                Destroy(gameObject);
             }
-            else if (moveH < 0 && facingRight)
-            {
-                Flip();
-            }
+            float playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
 
-            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        }
-        else
-        {
-            anim.SetFloat("EnemySpeedH", 0);
-            anim.SetFloat("EnemySpeedV", 0);
+            if ((target != null) && (playerDistance <= viewDistance))
+            {
+                //Move Towards Target
+                transform.position += (target.position - transform.position).normalized * moveSpeed * 0.005f;
+
+                float moveH = (target.position - transform.position).normalized.x;
+                float moveV = (target.position - transform.position).normalized.y;
+
+                anim.SetFloat("EnemySpeedH", Mathf.Abs(moveH));
+                anim.SetFloat("EnemySpeedV", moveV);
+
+                if (moveH > 0 && !facingRight)
+                {
+                    Flip();
+                }
+                else if (moveH < 0 && facingRight)
+                {
+                    Flip();
+                }
+
+                GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            }
+            else
+            {
+                anim.SetFloat("EnemySpeedH", 0);
+                anim.SetFloat("EnemySpeedV", 0);
+            }
         }
     }
 

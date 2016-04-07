@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -7,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     public float speed = 10;
     public string currentDirection = "";
     public int health = 100;
+    public int totalInvincibilityFrames = 10;
+    int currentInvincibilityFrame = 0;
     bool facingRight = true;
 
     float moveH;
@@ -77,21 +82,41 @@ public class PlayerScript : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    void OnCollisionStay2D(Collision2D enemy)
+    void OnCollisionStay2D(Collision2D collision)
     {
-        if (enemy.gameObject.tag == "Enemy")
+        if (currentInvincibilityFrame == 0)
         {
-            health -= enemy.gameObject.GetComponent<EnemyAI>().damage;
+            if (collision.gameObject.tag == "Enemy")
+            {
+                currentInvincibilityFrame = 10;
+                health -= collision.gameObject.GetComponent<EnemyAI>().damage;
 
-            float xdif = transform.position.x - enemy.transform.position.x;
-            float ydif = transform.position.y - enemy.transform.position.y;
+                float xdif = transform.position.x - collision.transform.position.x;
+                float ydif = transform.position.y - collision.transform.position.y;
 
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
+            }
+        }
+        else
+        {
+            currentInvincibilityFrame--;
         }
     }
 
-    void OnCollisionEnter2D(Collision2D enemy)
+    void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Door")
+        {
+            Debug.Log("test");
+            if (SceneManager.sceneCountInBuildSettings < EditorSceneManager.GetActiveScene().buildIndex)
+            {
+                SceneManager.LoadScene(EditorSceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
     }
 
     string getDirection(float moveH, float moveV)
