@@ -33,6 +33,7 @@ public class PlayerScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings-1);
         }
 
         if (moveV != 0 || moveH != 0)
@@ -105,10 +106,12 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        Debug.Log(EditorSceneManager.GetActiveScene().buildIndex);
         if (collision.gameObject.tag == "Door")
         {
             Debug.Log("test");
-            if (SceneManager.sceneCountInBuildSettings < EditorSceneManager.GetActiveScene().buildIndex)
+            if ((SceneManager.sceneCountInBuildSettings - 1) > EditorSceneManager.GetActiveScene().buildIndex)
             {
                 SceneManager.LoadScene(EditorSceneManager.GetActiveScene().buildIndex + 1);
             }

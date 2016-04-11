@@ -4,11 +4,14 @@ using System.Collections;
 public class EnemyAI : MonoBehaviour 
 {
     public Transform target;
-    public int moveSpeed;
-    public int viewDistance;
+    public int moveSpeed = 1;
+    public int viewDistance = 3;
     public int health = 100;
     public int damage = 10;
-    bool facingRight = true;
+    public bool facingRight = true;
+
+    float moveH;
+    float moveV;
 
     Animator anim;
 
@@ -19,7 +22,14 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        moveH = (target.position - transform.position).normalized.x;
+        moveV = (target.position - transform.position).normalized.y;
 
+        //set SpeedH to the absolute value of moveH
+        anim.SetFloat("SpeedH", Mathf.Abs(moveH));
+
+        //set SpeedV to the value of moveV
+        anim.SetFloat("SpeedV", moveV);
     }
 
     void FixedUpdate()
@@ -36,12 +46,6 @@ public class EnemyAI : MonoBehaviour
             {
                 //Move Towards Target
                 transform.position += (target.position - transform.position).normalized * moveSpeed * 0.005f;
-
-                float moveH = (target.position - transform.position).normalized.x;
-                float moveV = (target.position - transform.position).normalized.y;
-
-                anim.SetFloat("EnemySpeedH", Mathf.Abs(moveH));
-                anim.SetFloat("EnemySpeedV", moveV);
 
                 if (moveH > 0 && !facingRight)
                 {
