@@ -8,6 +8,11 @@ public class SmoothCamera2D : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     public Transform target;
 
+    void Start()
+    {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
     // Update is called once per frame
     void Update()
     {

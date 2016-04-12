@@ -105,8 +105,6 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(SceneManager.sceneCountInBuildSettings);
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         if (collision.gameObject.tag == "Door")
         {
             Debug.Log("test");
