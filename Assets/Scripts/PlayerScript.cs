@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEditor;
-using UnityEditor.SceneManagement;
+//using UnityEditor;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -33,7 +32,7 @@ public class PlayerScript : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings-1);
+            Application.LoadLevel(2);
         }
 
         if (moveV != 0 || moveH != 0)
@@ -107,13 +106,13 @@ public class PlayerScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(SceneManager.sceneCountInBuildSettings);
-        Debug.Log(EditorSceneManager.GetActiveScene().buildIndex);
+        Debug.Log(SceneManager.GetActiveScene().buildIndex);
         if (collision.gameObject.tag == "Door")
         {
             Debug.Log("test");
-            if ((SceneManager.sceneCountInBuildSettings - 1) > EditorSceneManager.GetActiveScene().buildIndex)
+            if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
             {
-                SceneManager.LoadScene(EditorSceneManager.GetActiveScene().buildIndex + 1);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else
             {

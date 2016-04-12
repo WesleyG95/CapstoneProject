@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public int damage = 10;
     public bool facingRight = true;
 
+    float playerDistance;
     float moveH;
     float moveV;
 
@@ -18,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -26,10 +28,13 @@ public class EnemyAI : MonoBehaviour
         moveV = (target.position - transform.position).normalized.y;
 
         //set SpeedH to the absolute value of moveH
-        anim.SetFloat("SpeedH", Mathf.Abs(moveH));
+        anim.SetFloat("EnemySpeedH", Mathf.Abs(moveH));
 
         //set SpeedV to the value of moveV
-        anim.SetFloat("SpeedV", moveV);
+        anim.SetFloat("EnemySpeedV", moveV);
+
+        Debug.Log(moveH);
+        Debug.Log(moveV);
     }
 
     void FixedUpdate()
@@ -40,7 +45,7 @@ public class EnemyAI : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            float playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
+            playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
 
             if ((target != null) && (playerDistance <= viewDistance))
             {

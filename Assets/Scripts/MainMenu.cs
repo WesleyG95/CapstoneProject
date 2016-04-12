@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour {
     {
         if (isStart)
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
         }
         if (isQuit)
         {
