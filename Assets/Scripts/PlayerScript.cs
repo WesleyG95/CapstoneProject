@@ -105,7 +105,7 @@ public class PlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Door")
+        if (collision.gameObject.tag == "Door" || collision.gameObject.tag == "LockedDoor")
         {
             Debug.Log("test");
             if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
@@ -114,7 +114,7 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
         }
     }
