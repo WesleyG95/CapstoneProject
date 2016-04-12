@@ -28,7 +28,6 @@ public class PauseControl : MonoBehaviour
             }
             else if (Time.timeScale == 0)
             {
-                Debug.Log("run");
                 Time.timeScale = 1;
                 hidePaused();
             }
@@ -39,6 +38,7 @@ public class PauseControl : MonoBehaviour
     public void Reload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Cursor.visible = false;
     }
 
     //controls the pausing of the scene
@@ -59,6 +59,8 @@ public class PauseControl : MonoBehaviour
     //shows objects with ShowOnPause tag
     public void showPaused()
     {
+        Cursor.visible = true;
+
         foreach (GameObject g in pauseObjects)
         {
             g.SetActive(true);
@@ -68,6 +70,8 @@ public class PauseControl : MonoBehaviour
     //hides objects with ShowOnPause tag
     public void hidePaused()
     {
+        Cursor.visible = false;
+
         foreach (GameObject g in pauseObjects)
         {
             g.SetActive(false);
