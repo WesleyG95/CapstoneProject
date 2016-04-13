@@ -17,6 +17,7 @@ public class LockedDoorScript : MonoBehaviour {
     {
         bool isEnemies = true;
         isEnemies = checkForEnemies();
+        Debug.Log(isEnemies);
 
         if (!isEnemies)
         {
@@ -29,6 +30,8 @@ public class LockedDoorScript : MonoBehaviour {
     {
         GameObject[] a;
         a = GameObject.FindGameObjectsWithTag("Enemy");
+        Debug.Log(a.Length);
+        Debug.Log(a[0].name);
         if (a.Length > 0)
         {
             return true;
