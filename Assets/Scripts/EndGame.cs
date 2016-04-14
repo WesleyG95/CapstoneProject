@@ -10,13 +10,11 @@ public class EndGame : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         totalFrames = numSeconds * 60;
-        Debug.Log(totalFrames);
 	}
 	
 	// Update is called once per frame
 	void Update () {
         currentFrame++;
-        Debug.Log(currentFrame);
         if (currentFrame > totalFrames)
         {
             Application.Quit();

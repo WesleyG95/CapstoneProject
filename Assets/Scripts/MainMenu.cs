@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
     public bool isStart;
     public bool isQuit;
-    // Use this for initialization
+
 	void Start () {
 
 	}
@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour {
             Application.Quit();
         }
     } 
-    // Update is called once per frame
+
     void Update () {
 	
 	}

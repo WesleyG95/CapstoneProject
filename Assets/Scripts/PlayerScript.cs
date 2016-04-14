@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 //using UnityEditor;
 
 public class PlayerScript : MonoBehaviour
@@ -26,15 +27,21 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        //get input
         moveH = Input.GetAxis("Horizontal");
         moveV = Input.GetAxis("Vertical");
 
+        //change health in the ui
+        GameObject.FindGameObjectWithTag("UIHealth").GetComponent<Text>().text = "Health: " + health.ToString();
+
+        //check if player is dead
         if (health <= 0)
         {
             Destroy(gameObject);
             Application.LoadLevel(2);
         }
 
+        //if moving, check direction
         if (moveV != 0 || moveH != 0)
         {
             currentDirection = getDirection(moveH, moveV);
@@ -84,38 +91,46 @@ public class PlayerScript : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (currentInvincibilityFrame == 0)
+        //check if player should be hit
+        if (collision.gameObject.tag == "Enemy")
         {
-            if (collision.gameObject.tag == "Enemy")
+            if (currentInvincibilityFrame == 0)
             {
-                currentInvincibilityFrame = 10;
+                currentInvincibilityFrame = totalInvincibilityFrames;
                 health -= collision.gameObject.GetComponent<EnemyAI>().damage;
 
+                //find which direction the player was attacked from
                 float xdif = transform.position.x - collision.transform.position.x;
                 float ydif = transform.position.y - collision.transform.position.y;
 
+                //knock enemy back
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
             }
-        }
-        else
-        {
-            currentInvincibilityFrame--;
+            else
+            {
+                currentInvincibilityFrame--;
+            }
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Door" || collision.gameObject.tag == "LockedDoor")
+        //check if trigger is a door
+        if (collision.gameObject.tag == "DoorNext" || collision.gameObject.tag == "LockedDoorNext")
         {
-            Debug.Log("test");
             if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
             {
+                //load scene
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else
             {
                 SceneManager.LoadScene(1);
             }
+        }
+        else if (collision.gameObject.tag == "DoorPrevious" || collision.gameObject.tag == "LockedDoorPrevious")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 
