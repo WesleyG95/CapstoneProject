@@ -18,7 +18,14 @@ public class PlayerScript : MonoBehaviour
     float moveV;
 
     Animator anim;
-
+    void Awake()
+    {
+        Debug.Log(this.transform.position);
+        Debug.Log(GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position);
+        DontDestroyOnLoad(this);
+        //transform.position.x = GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position.x;
+        //transform.position.y = GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position.y;
+    }
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -131,6 +138,7 @@ public class PlayerScript : MonoBehaviour
         else if (collision.gameObject.tag == "DoorPrevious" || collision.gameObject.tag == "LockedDoorPrevious")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            Debug.Log("test3");
         }
     }
 

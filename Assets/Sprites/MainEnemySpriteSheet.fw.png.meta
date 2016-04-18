@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4b66677769b347d4d849a35aa427e2e9
-timeCreated: 1460483371
+timeCreated: 1460992930
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -60,33 +60,33 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 280
-        width: 28
-        height: 30
+        y: 278
+        width: 30
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: MainEnemySpriteSheet.fw_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 278
-        width: 28
-        height: 32
+        x: 38
+        y: 279
+        width: 31
+        height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: MainEnemySpriteSheet.fw_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 73
         y: 278
-        width: 29
-        height: 32
+        width: 30
+        height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: MainEnemySpriteSheet.fw_3
@@ -119,7 +119,7 @@ TextureImporter:
         width: 27
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []

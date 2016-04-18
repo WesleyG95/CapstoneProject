@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour
 
         //set SpeedV to the value of moveV
         anim.SetFloat("EnemySpeedV", moveV);
+        
     }
 
     void FixedUpdate()
