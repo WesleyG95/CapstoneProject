@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-
+    GameObject spawnEntrance;
     public float speed = 10;
     public string currentDirection = "";
     public int health = 100;
@@ -20,11 +20,21 @@ public class PlayerScript : MonoBehaviour
     Animator anim;
     void Awake()
     {
+
         Debug.Log(this.transform.position);
         Debug.Log(GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position);
         DontDestroyOnLoad(this);
         //transform.position.x = GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position.x;
         //transform.position.y = GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position.y;
+
+
+        //this.transform.Translate(GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position);
+
+        foreach (GameObject a in GameObject.FindGameObjectsWithTag("SpawnEntrance"))
+        {
+            Debug.Log(a.name + " " + a.transform.position);
+        }
+        Debug.Log(transform.position);
     }
     void Start()
     {
@@ -129,6 +139,8 @@ public class PlayerScript : MonoBehaviour
             {
                 //load scene
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                spawnEntrance = GameObject.FindGameObjectWithTag("SpawnEntrance");
+                transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
             }
             else
             {
@@ -139,6 +151,8 @@ public class PlayerScript : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             Debug.Log("test3");
+            spawnEntrance = GameObject.FindGameObjectWithTag("SpawnExit");
+            transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
         }
     }
 
