@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
-    GameObject spawnEntrance;
+    public string direction = "forward";
     public float speed = 10;
     public string currentDirection = "";
     public int health = 100;
@@ -14,27 +14,46 @@ public class PlayerScript : MonoBehaviour
     int currentInvincibilityFrame = 0;
     bool facingRight = true;
 
+    GameObject spawnEntrance;
+    GameObject spawnExit;
+
+    private static PlayerScript _instance;
+
     float moveH;
     float moveV;
 
     Animator anim;
+
+    void OnLevelWasLoaded()
+    {
+        //find entrance and exit
+        spawnEntrance = GameObject.FindGameObjectWithTag("SpawnEntrance");
+        spawnExit = GameObject.FindGameObjectWithTag("SpawnExit");
+
+        //move player
+        if (direction == "forward")
+        {
+            transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(spawnExit.transform.position.x, spawnExit.transform.position.y, spawnExit.transform.position.z);
+        }
+    }
+
     void Awake()
     {
 
-        Debug.Log(this.transform.position);
-        Debug.Log(GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position);
-        DontDestroyOnLoad(this);
-        //transform.position.x = GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position.x;
-        //transform.position.y = GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position.y;
-
-
-        //this.transform.Translate(GameObject.FindGameObjectWithTag("SpawnEntrance").transform.position);
-
-        foreach (GameObject a in GameObject.FindGameObjectsWithTag("SpawnEntrance"))
+        if (!_instance)
         {
-            Debug.Log(a.name + " " + a.transform.position);
+            _instance = this;
         }
-        Debug.Log(transform.position);
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this);
     }
     void Start()
     {
@@ -137,10 +156,11 @@ public class PlayerScript : MonoBehaviour
         {
             if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
             {
+                direction = "forward";
+                Debug.Log(direction);
+
                 //load scene
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                spawnEntrance = GameObject.FindGameObjectWithTag("SpawnEntrance");
-                transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
             }
             else
             {
@@ -149,10 +169,11 @@ public class PlayerScript : MonoBehaviour
         }
         else if (collision.gameObject.tag == "DoorPrevious" || collision.gameObject.tag == "LockedDoorPrevious")
         {
+            direction = "back";
+            Debug.Log(direction);
+
+            //load scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-            Debug.Log("test3");
-            spawnEntrance = GameObject.FindGameObjectWithTag("SpawnExit");
-            transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
         }
     }
 
