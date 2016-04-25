@@ -26,18 +26,21 @@ public class PlayerScript : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
-        //find entrance and exit
-        spawnEntrance = GameObject.FindGameObjectWithTag("SpawnEntrance");
-        spawnExit = GameObject.FindGameObjectWithTag("SpawnExit");
+        if (SceneManager.GetActiveScene().buildIndex >= 3)
+        {
+            //find entrance and exit
+            spawnEntrance = GameObject.FindGameObjectWithTag("SpawnEntrance");
+            spawnExit = GameObject.FindGameObjectWithTag("SpawnExit");
 
-        //move player
-        if (direction == "forward")
-        {
-            transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
-        }
-        else
-        {
-            transform.position = new Vector3(spawnExit.transform.position.x, spawnExit.transform.position.y, spawnExit.transform.position.z);
+            //move player
+            if (direction == "forward")
+            {
+                transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
+            }
+            else
+            {
+                transform.position = new Vector3(spawnExit.transform.position.x, spawnExit.transform.position.y, spawnExit.transform.position.z);
+            }
         }
     }
 
@@ -63,31 +66,34 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        //get input
-        moveH = Input.GetAxis("Horizontal");
-        moveV = Input.GetAxis("Vertical");
-
-        //change health in the ui
-        GameObject.FindGameObjectWithTag("UIHealth").GetComponent<Text>().text = "Health: " + health.ToString();
-
-        //check if player is dead
-        if (health <= 0)
+        if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
-            Destroy(gameObject);
-            Application.LoadLevel(2);
+            //get input
+            moveH = Input.GetAxis("Horizontal");
+            moveV = Input.GetAxis("Vertical");
+
+            //change health in the ui
+            GameObject.FindGameObjectWithTag("UIHealth").GetComponent<Text>().text = "Health: " + health.ToString();
+
+            //check if player is dead
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                Application.LoadLevel(2);
+            }
+
+            //if moving, check direction
+            if (moveV != 0 || moveH != 0)
+            {
+                currentDirection = getDirection(moveH, moveV);
+            }
+
+            //set SpeedH to the absolute value of moveH
+            anim.SetFloat("SpeedH", Mathf.Abs(moveH));
+
+            //set SpeedV to the value of moveV
+            anim.SetFloat("SpeedV", moveV);
         }
-
-        //if moving, check direction
-        if (moveV != 0 || moveH != 0)
-        {
-            currentDirection = getDirection(moveH, moveV);
-        }
-
-        //set SpeedH to the absolute value of moveH
-        anim.SetFloat("SpeedH", Mathf.Abs(moveH));
-
-        //set SpeedV to the value of moveV
-        anim.SetFloat("SpeedV", moveV);
     }
 
     void FixedUpdate()
