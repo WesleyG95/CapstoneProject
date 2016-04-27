@@ -21,7 +21,7 @@ public class HealthIndicatorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (enemyScript.health <= halfHealth)
+        if ((enemyScript.health <= halfHealth) && (enemyScript.health >= quarterHealth))
         {
             this.GetComponentInParent<SpriteRenderer>().sprite = MediumHealth;
         }
