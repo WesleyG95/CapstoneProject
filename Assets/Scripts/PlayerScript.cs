@@ -160,27 +160,38 @@ public class PlayerScript : MonoBehaviour
         //check if trigger is a door
         if (collision.gameObject.tag == "DoorNext" || collision.gameObject.tag == "LockedDoorNext")
         {
-            if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
-            {
-                direction = "forward";
-                Debug.Log(direction);
-
-                //load scene
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
-            else
-            {
-                SceneManager.LoadScene(1);
-            }
+            enterDoorNext();
         }
         else if (collision.gameObject.tag == "DoorPrevious" || collision.gameObject.tag == "LockedDoorPrevious")
         {
-            direction = "back";
-            Debug.Log(direction);
+            enterDoorPrevious();
+        }
+    }
+
+    //entering the next room
+    public void enterDoorNext()
+    {
+        if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
+        {
+            direction = "forward";
 
             //load scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        else
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene(1);
+        }
+    }
+
+    //entering the previous room
+    public void enterDoorPrevious()
+    {
+        direction = "back";
+
+        //load scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     string getDirection(float moveH, float moveV)

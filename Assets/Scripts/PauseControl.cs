@@ -37,6 +37,7 @@ public class PauseControl : MonoBehaviour
     //reloads level
     public void Reload()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().direction = "forward";
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Cursor.visible = false;
     }
@@ -79,8 +80,9 @@ public class PauseControl : MonoBehaviour
     }
 
     //loads inputted level
-    public void LoadLevel(string level)
+    public void LoadLevel()
     {
-        SceneManager.LoadScene(level);
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        SceneManager.LoadScene(0);
     }
 }

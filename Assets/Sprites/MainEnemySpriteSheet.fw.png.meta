@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4b66677769b347d4d849a35aa427e2e9
-timeCreated: 1460992930
+timeCreated: 1461865617
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,9 @@ TextureImporter:
     21300006: MainEnemySpriteSheet.fw_3
     21300008: MainEnemySpriteSheet.fw_4
     21300010: MainEnemySpriteSheet.fw_5
+    21300012: MainEnemySpriteSheet.fw_6
+    21300014: MainEnemySpriteSheet.fw_7
+    21300016: MainEnemySpriteSheet.fw_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -60,9 +63,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 278
-        width: 30
-        height: 31
+        y: 280
+        width: 31
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -70,12 +73,12 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_1
       rect:
         serializedVersion: 2
-        x: 38
-        y: 279
+        x: 37
+        y: 278
         width: 31
-        height: 30
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: MainEnemySpriteSheet.fw_2
@@ -83,10 +86,10 @@ TextureImporter:
         serializedVersion: 2
         x: 73
         y: 278
-        width: 30
-        height: 31
+        width: 31
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: MainEnemySpriteSheet.fw_3
@@ -119,7 +122,40 @@ TextureImporter:
         width: 27
         height: 31
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: MainEnemySpriteSheet.fw_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 207
+        width: 20
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: MainEnemySpriteSheet.fw_7
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 206
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: MainEnemySpriteSheet.fw_8
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 207
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     outline: []
