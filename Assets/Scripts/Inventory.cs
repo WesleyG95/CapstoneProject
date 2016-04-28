@@ -40,16 +40,8 @@ public class Inventory : MonoBehaviour
     {
         if (other.gameObject.tag == "HealthPotion")
         {
-            if (currentWaitFrame == 0)
-            {
-                currentWaitFrame = totalWaitFrames;
-                HealthInv++;
-            }
-            else
-            {
-                currentWaitFrame--;
-            }
-            
+            currentWaitFrame = totalWaitFrames;
+            HealthInv++;
         }
     }
 }
