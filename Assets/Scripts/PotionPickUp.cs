@@ -7,7 +7,8 @@ public class PotionPickUp : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            //other.GetComponent<Inventory>().HealthInv++;
+            //Destroy(gameObject);
         }
     }
 }

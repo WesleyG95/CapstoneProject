@@ -9,9 +9,6 @@ public class Inventory : MonoBehaviour
     public GUIStyle style2;
     public bool showGUI = false;
 
-    public int totalWaitFrames = 10;
-    int currentWaitFrame = 0;
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -40,8 +37,8 @@ public class Inventory : MonoBehaviour
     {
         if (other.gameObject.tag == "HealthPotion")
         {
-            currentWaitFrame = totalWaitFrames;
             HealthInv++;
+            Destroy(other.gameObject);
         }
     }
 }
