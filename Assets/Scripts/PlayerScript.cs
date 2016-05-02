@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEditor;
 //using UnityEditor;
 
 public class PlayerScript : MonoBehaviour
@@ -173,6 +174,8 @@ public class PlayerScript : MonoBehaviour
     {
         if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
         {
+            EditorApplication.SaveScene();
+            EditorApplication.LoadLevelInPlayMode();
             direction = "forward";
 
             //load scene

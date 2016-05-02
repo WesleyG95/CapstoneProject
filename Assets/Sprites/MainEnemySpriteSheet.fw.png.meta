@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4b66677769b347d4d849a35aa427e2e9
-timeCreated: 1461865617
+timeCreated: 1462209952
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -13,6 +13,8 @@ TextureImporter:
     21300012: MainEnemySpriteSheet.fw_6
     21300014: MainEnemySpriteSheet.fw_7
     21300016: MainEnemySpriteSheet.fw_8
+    21300018: MainEnemySpriteSheet.fw_9
+    21300020: MainEnemySpriteSheet.fw_10
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -62,19 +64,19 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 280
+        x: 2
+        y: 278
         width: 31
         height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
     - name: MainEnemySpriteSheet.fw_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 278
+        x: 39
+        y: 276
         width: 31
         height: 32
       alignment: 0
@@ -84,8 +86,8 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_2
       rect:
         serializedVersion: 2
-        x: 73
-        y: 278
+        x: 75
+        y: 276
         width: 31
         height: 32
       alignment: 0
@@ -95,8 +97,8 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_3
       rect:
         serializedVersion: 2
-        x: 2
-        y: 241
+        x: 4
+        y: 239
         width: 23
         height: 31
       alignment: 0
@@ -106,8 +108,8 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_4
       rect:
         serializedVersion: 2
-        x: 38
-        y: 241
+        x: 40
+        y: 239
         width: 27
         height: 31
       alignment: 0
@@ -117,8 +119,8 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_5
       rect:
         serializedVersion: 2
-        x: 74
-        y: 241
+        x: 76
+        y: 239
         width: 27
         height: 31
       alignment: 0
@@ -128,8 +130,8 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_6
       rect:
         serializedVersion: 2
-        x: 1
-        y: 207
+        x: 3
+        y: 205
         width: 20
         height: 30
       alignment: 0
@@ -139,8 +141,8 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_7
       rect:
         serializedVersion: 2
-        x: 37
-        y: 206
+        x: 39
+        y: 204
         width: 23
         height: 30
       alignment: 0
@@ -150,9 +152,31 @@ TextureImporter:
     - name: MainEnemySpriteSheet.fw_8
       rect:
         serializedVersion: 2
-        x: 73
-        y: 207
+        x: 75
+        y: 205
         width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: MainEnemySpriteSheet.fw_9
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 206
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: MainEnemySpriteSheet.fw_10
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 205
+        width: 23
         height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
