@@ -1,12 +1,12 @@
 fileFormatVersion: 2
 guid: 22af30ea1ad51164dbba30e5c2f156e6
-timeCreated: 1461722952
+timeCreated: 1462294596
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - HighHealth: {instanceID: 0}
-  - MediumHealth: {instanceID: 0}
+  - HighHealth: {fileID: 21300000, guid: b797a388f7a7c9f4ea462a4b7e6fd878, type: 3}
+  - MediumHealth: {fileID: 21300000, guid: c300ad2550ddb2e4d92a258cb4c9e96d, type: 3}
   - LowHealth: {fileID: 21300000, guid: eb924d4ddc100a341803f58881393e10, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}

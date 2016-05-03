@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public string direction = "forward";
     public float speed = 10;
     public string currentDirection = "";
+    public int maxHealth = 100;
     public int health = 100;
     public int totalInvincibilityFrames = 10;
     int currentInvincibilityFrame = 0;
@@ -46,13 +47,14 @@ public class PlayerScript : MonoBehaviour
 
     void Awake()
     {
-
+        //check if there is another player in the scene
         if (!_instance)
         {
             _instance = this;
         }
         else
         {
+            //destroy the other player in the scene
             Destroy(this.gameObject);
         }
 
