@@ -1,20 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TextAnimation : MonoBehaviour
 {
-    public float letterPause = 0.05f;
+    public float letterPause = 0.03f;
     public GUIStyle font;
     public GUIStyle skip;
-    string story1;
+    string story1 = "{Player} made it.  The portal worked and he survived.  A few echoing cries from the other side carried through behind him- but for only a few moments before they dissipated into the silence of the small room.  It looked like the castle, but it wasn't.  His memory was suddenly foggy but he held tight a specific voice- the advisor's dying words.";
     string story2 = "The sword. It was the only way he could have even a chance against the dark army's commander and, if it was even possible, to free himself from the corruption of darkness that was stealing his soul.  If {Player} couldn't stop him, the army of this altered world would overrun and destroy the barrier, uniting their world with {Player}'s.  It would spill perpetual shadow across {World} and give free range to all its dark inhabitants.  It would be the end of everything.  It already practically destroyed the castle.  All he had to do was beat the Dark Commander to the sword.  If {Player} got to it first, he could stop all this....";
     string text;
     string skipText = "Skip: Space";
+    int spacePressedCount = 0;
 
     void Start()
     {
-        story1 = "{Player} made it.  The portal worked and he survived.  A few echoing cries from the other side carried through behind him- but for only a few moments before they dissipated into the silence of the small room.  It looked like the castle, but it wasn't.  His memory was suddenly foggy but he held tight a specific voice- the advisor's dying words.";
         text = "";
         StartCoroutine(TypeText(story1));
     }
@@ -30,25 +31,42 @@ public class TextAnimation : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Label(new Rect(100, 100, 280, 1024), text, font);
-        GUI.Label(new Rect(800, 400, 100, 100), skipText, skip);
+        GUI.Label(new Rect(100, 80, 280, 1024), text, font);
+        GUI.Label(new Rect(810, 380, 200, 100), skipText, skip);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //completes the story instead of typing it out
+        if (Input.GetKeyUp(KeyCode.Space)) 
         {
-            StopAllCoroutines();
-            text = story1;
-        }
-
-        if (text == story1)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (spacePressedCount == 0)
             {
+                spacePressedCount++;
+                StopAllCoroutines();
+                text = story1;
+            }
+
+            else if ((spacePressedCount == 1) && (text == story1))
+            {
+                spacePressedCount++;
+                StopAllCoroutines();
                 text = "";
                 StartCoroutine(TypeText(story2));
             }
+
+            else if (spacePressedCount == 2)
+            {
+                spacePressedCount++;
+                StopAllCoroutines();
+                text = story2;
+            }
+
+            else if ((spacePressedCount == 3) && (text == story2))
+            {
+                SceneManager.LoadScene("Room1");
+            }
+            else { Debug.Log("Huge Error"); }
         }
     }
 }
