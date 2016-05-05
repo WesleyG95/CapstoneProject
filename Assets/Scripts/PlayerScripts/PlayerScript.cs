@@ -47,6 +47,9 @@ public class PlayerScript : MonoBehaviour
 
     void Awake()
     {
+        //hopefully this will give us our last level when we die
+        LevelManager.setLastLevel(SceneManager.GetActiveScene().name);
+
         //check if there is another player in the scene
         if (!_instance)
         {

@@ -3,6 +3,13 @@ using System.Collections;
 
 public class EndGame : MonoBehaviour {
 
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+
+
+    /* keeping this for now
     public int numSeconds = 5;
     int currentFrame = 0;
     int totalFrames;
@@ -19,5 +26,5 @@ public class EndGame : MonoBehaviour {
         {
             Application.Quit();
         }
-	}
+	}*/
 }
