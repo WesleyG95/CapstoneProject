@@ -27,6 +27,13 @@ public class PlayerScript : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
+        //hopefully this will give us our last level when we die
+        //LevelManager.setLastLevel(SceneManager.GetActiveScene().name);
+
+        //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().direction = "forward";
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //Cursor.visible = false;
+
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
             //find entrance and exit
@@ -47,9 +54,6 @@ public class PlayerScript : MonoBehaviour
 
     void Awake()
     {
-        //hopefully this will give us our last level when we die
-        LevelManager.setLastLevel(SceneManager.GetActiveScene().name);
-
         //check if there is another player in the scene
         if (!_instance)
         {
@@ -71,8 +75,9 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAI>().id);
-        Debug.Log(GameObject.FindGameObjectWithTag("HealthPotion").GetComponent<PotionPickUp>().id);
+        //Debug.Log(LevelManager.getLastLevel());
+        //Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAI>().objectId);
+        //Debug.Log(GameObject.FindGameObjectWithTag("HealthPotion").GetComponent<PotionPickUp>().objectId);
 
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {

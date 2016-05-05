@@ -4,12 +4,12 @@ using System.Collections;
 public class RemovableObjects : MonoBehaviour {
 
     public static int count = 0;
-    public int id;
+    public int objectId;
     public bool alive = true;
 
     public RemovableObjects()
     {
-        id = count;
+        objectId = count;
         count++;
     }
 
@@ -21,4 +21,9 @@ public class RemovableObjects : MonoBehaviour {
 	void Update () {
 	    
 	}
+
+    public void Die()
+    {
+
+    }
 }
