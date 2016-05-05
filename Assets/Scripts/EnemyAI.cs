@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyAI : MonoBehaviour 
+public class EnemyAI : RemovableObjects
 {
     public Transform target;
     public int moveSpeed = 1;

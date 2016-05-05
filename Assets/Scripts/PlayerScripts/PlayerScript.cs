@@ -71,6 +71,9 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAI>().id);
+        Debug.Log(GameObject.FindGameObjectWithTag("HealthPotion").GetComponent<PotionPickUp>().id);
+
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
             //get input

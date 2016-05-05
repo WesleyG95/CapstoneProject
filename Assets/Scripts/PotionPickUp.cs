@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PotionPickUp : MonoBehaviour {
-
+public class PotionPickUp : RemovableObjects 
+{
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player")
