@@ -22,7 +22,9 @@ public class TextAnimation : MonoBehaviour
 
     void Start()
     {
+        //get the current scene
         Scene currentScene = SceneManager.GetActiveScene();
+        //check what scene is active
         if (currentScene.name == "StoryBlock1")
         {
             text = "";
@@ -37,6 +39,7 @@ public class TextAnimation : MonoBehaviour
         }
     }
 
+    //types the text to the screen
     IEnumerator TypeText(string story)
     {
         foreach (char letter in story.ToCharArray())
@@ -54,11 +57,10 @@ public class TextAnimation : MonoBehaviour
 
     void Update()
     {
-        //get the current scene
         Scene currentScene = SceneManager.GetActiveScene();
-
         if (currentScene.name == "StoryBlock1")
         {
+            //space bar is pressed
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 //player skipped text typing and sees the entire storyblock1
@@ -97,6 +99,7 @@ public class TextAnimation : MonoBehaviour
         {
             //stuff to come
         }
+        //end game story
         else if (currentScene.name == "FinalStory")
         {
             if (Input.GetKeyUp(KeyCode.Space))
