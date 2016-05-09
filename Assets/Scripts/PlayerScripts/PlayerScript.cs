@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
+        RemovableObjects[] objects = (RemovableObjects[]) FindObjectsOfType(typeof(RemovableObjects));
+
         //hopefully this will give us our last level when we die
         //LevelManager.setLastLevel(SceneManager.GetActiveScene().name);
 
@@ -40,7 +42,7 @@ public class PlayerScript : MonoBehaviour
             spawnEntrance = GameObject.FindGameObjectWithTag("SpawnEntrance");
             spawnExit = GameObject.FindGameObjectWithTag("SpawnExit");
 
-            //move player
+            //move player to spawn location
             if (direction == "forward")
             {
                 transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
@@ -48,6 +50,16 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 transform.position = new Vector3(spawnExit.transform.position.x, spawnExit.transform.position.y, spawnExit.transform.position.z);
+            }
+        }
+
+        foreach (RemovableObjects o in objects)
+        {
+            //Debug.Log(PlayerPrefs.GetInt(o.objectId.ToString()));
+
+            if (!o.alive)
+            {
+                o.Die();
             }
         }
     }

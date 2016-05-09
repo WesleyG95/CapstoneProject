@@ -11,6 +11,7 @@ public class RemovableObjects : MonoBehaviour {
     {
         objectId = count;
         count++;
+        //Debug.Log(objectId);
     }
 
 	// Use this for initialization
@@ -24,6 +25,8 @@ public class RemovableObjects : MonoBehaviour {
 
     public void Die()
     {
-
+        PlayerPrefs.SetInt(objectId.ToString(), 1);
+        PlayerPrefs.Save();
+        Destroy(gameObject);
     }
 }
