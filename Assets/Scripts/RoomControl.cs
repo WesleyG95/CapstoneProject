@@ -11,7 +11,7 @@ public class RoomControl : MonoBehaviour {
 
     void Awake()
     {
-
+        
     }
 	
 	// Update is called once per frame
