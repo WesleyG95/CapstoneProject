@@ -22,6 +22,7 @@ public class TextAnimation : MonoBehaviour
 
     void Start()
     {
+        StopAllCoroutines();
         //get the current scene
         Scene currentScene = SceneManager.GetActiveScene();
         //check what scene is active
