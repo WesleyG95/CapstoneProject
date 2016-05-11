@@ -185,6 +185,7 @@ public class PlayerScript : MonoBehaviour
         //check if trigger is a door
         if (collision.gameObject.tag == "DoorNext" || collision.gameObject.tag == "LockedDoorNext")
         {
+            RoomControl.endScene();
             enterDoorNext();
         }
         else if (collision.gameObject.tag == "DoorPrevious" || collision.gameObject.tag == "LockedDoorPrevious")
