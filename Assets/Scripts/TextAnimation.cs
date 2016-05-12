@@ -67,31 +67,28 @@ public class TextAnimation : MonoBehaviour
                 //player skipped text typing and sees the entire storyblock1
                 if (spacePressedCount == 0)
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = story1_1;
                 }
 
                 //start storyblock1 part 2
                 else if ((spacePressedCount == 1) && (text == story1_1))
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = "";
                     StartCoroutine(TypeText(story1_2));
                 }
 
                 else if (spacePressedCount == 2)
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = story1_2;
                 }
 
                 //story is finished and the game begins
                 else if ((spacePressedCount == 3) && (text == story1_2))
                 {
-                    SceneManager.LoadScene("Room1");
+                    RoomControl.loadNewScene();
                 }
                 else { Debug.Log("Huge Error- storyblock1"); }
             }
@@ -107,37 +104,32 @@ public class TextAnimation : MonoBehaviour
             {
                 if (spacePressedCount == 0)
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = storyFinal1;
                 }
                 //start final story part 2
                 else if ((spacePressedCount == 1) && (text == storyFinal1))
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = "";
                     StartCoroutine(TypeText(storyFinal2));
                 }
                 else if (spacePressedCount == 2)
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = storyFinal2;
                 }
                 //start final story part 3
                 else if ((spacePressedCount == 3) && (text == storyFinal2))
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = "";
                     StartCoroutine(TypeText(storyFinal3));
                 }
 
                 else if (spacePressedCount == 4)
                 {
-                    spacePressedCount++;
-                    StopAllCoroutines();
+                    spacePressed();
                     text = storyFinal3;
                 }
                 else if ((spacePressedCount == 5) && (text == storyFinal2))
@@ -147,5 +139,11 @@ public class TextAnimation : MonoBehaviour
                 }
             }
         }
+    }
+
+    void spacePressed()
+    {
+        spacePressedCount++;
+        StopAllCoroutines();
     }
 }

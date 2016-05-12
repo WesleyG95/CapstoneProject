@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
 //using UnityEditor;
 
 public class PlayerScript : MonoBehaviour
@@ -27,15 +28,6 @@ public class PlayerScript : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
-        RemovableObjects[] objects = (RemovableObjects[]) FindObjectsOfType(typeof(RemovableObjects));
-
-        //hopefully this will give us our last level when we die
-        //LevelManager.setLastLevel(SceneManager.GetActiveScene().name);
-
-        //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().direction = "forward";
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //Cursor.visible = false;
-
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
             //find entrance and exit
@@ -50,16 +42,6 @@ public class PlayerScript : MonoBehaviour
             else
             {
                 transform.position = new Vector3(spawnExit.transform.position.x, spawnExit.transform.position.y, spawnExit.transform.position.z);
-            }
-        }
-
-        foreach (RemovableObjects o in objects)
-        {
-            //Debug.Log(PlayerPrefs.GetInt(o.objectId.ToString()));
-
-            if (!o.alive)
-            {
-                o.Die();
             }
         }
     }
@@ -87,10 +69,6 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(LevelManager.getLastLevel());
-        //Debug.Log(GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyAI>().objectId);
-        //Debug.Log(GameObject.FindGameObjectWithTag("HealthPotion").GetComponent<PotionPickUp>().objectId);
-
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
             //get input
@@ -104,7 +82,7 @@ public class PlayerScript : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(gameObject);
-                Application.LoadLevel(2);
+                SceneManager.LoadScene(2);
             }
 
             //if moving, check direction
@@ -123,7 +101,6 @@ public class PlayerScript : MonoBehaviour
 
     void FixedUpdate()
     {
-
         //move
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveH * speed, moveV * speed);
 
@@ -185,41 +162,14 @@ public class PlayerScript : MonoBehaviour
         //check if trigger is a door
         if (collision.gameObject.tag == "DoorNext" || collision.gameObject.tag == "LockedDoorNext")
         {
-            RoomControl.endScene();
-            enterDoorNext();
+            direction = "forward";
+            RoomControl.loadNewScene(direction);
         }
         else if (collision.gameObject.tag == "DoorPrevious" || collision.gameObject.tag == "LockedDoorPrevious")
         {
-            enterDoorPrevious();
+            direction = "back";
+            RoomControl.loadNewScene(direction);
         }
-    }
-
-    //entering the next room
-    public void enterDoorNext()
-    {
-        if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
-        {
-            //EditorApplication.SaveScene();
-            //EditorApplication.LoadLevelInPlayMode();
-            direction = "forward";
-
-            //load scene
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-        else
-        {
-            Destroy(gameObject);
-            SceneManager.LoadScene(1);
-        }
-    }
-
-    //entering the previous room
-    public void enterDoorPrevious()
-    {
-        direction = "back";
-
-        //load scene
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     string getDirection(float moveH, float moveV)

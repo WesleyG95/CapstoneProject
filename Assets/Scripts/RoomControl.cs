@@ -6,38 +6,38 @@ using System;
 
 public class RoomControl : MonoBehaviour {
 
-    static Dictionary<int, bool> sceneObjects = new Dictionary<int, bool>();
+    public static Dictionary<int, bool> sceneObjects = new Dictionary<int, bool>();
     static List<Dictionary<int, bool>> savedScenes = new List<Dictionary<int, bool>>();
-    static List<RemovableObjects> removableObjectsInScene = new List<RemovableObjects>();
     static int id = 0;
+    static int sceneNumber = 0;
 
 	// Use this for initialization
 	void Start ()
     {
-        startScene();
         DontDestroyOnLoad(transform.gameObject);
-	}
+        findObjects();
+    }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
+
+    void Update()
+    {
+        Debug.Log(sceneNumber);
+    }
 
     void OnLevelWasLoaded()
     {
-        reset();
-        startScene();
         removeObjects();
     }
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	    
-	}
-    public static void startScene()
+
+    public static void findObjects()
     {
         foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
         {
-            sceneObjects.Add(id, true);
-            removableObjectsInScene.Add(o);
-            o.objectId = id;
-            id++;
+            sceneObjects.Add(o.objectId, false);
         }
     }
 
@@ -50,33 +50,88 @@ public class RoomControl : MonoBehaviour {
         }
     }
 
-    void reset()
+    static void reset(int newSceneIndex)
     {
-        savedScenes.Add(sceneObjects);
         id = 0;
-        foreach (KeyValuePair<int, bool> o in sceneObjects)
+
+        if (savedScenes.Count > newSceneIndex)
         {
-            Debug.Log(o.Key);
-            Debug.Log(o.Value);
+            //savedScenes[sceneNumber] = sceneObjects;
+            sceneObjects = savedScenes[newSceneIndex];
         }
-        sceneObjects = new Dictionary<int, bool>();
+        else
+        {
+            Debug.Log("scene " + newSceneIndex + " not found, creating new");
+            savedScenes.Add(sceneObjects);
+            sceneObjects = new Dictionary<int, bool>();
+            findObjects();
+        }
+
+        /*
+        //if scene is not in dictionary, create new dictionary and find objects
+        try
+        {
+            sceneObjects = savedScenes[newSceneIndex];
+        }
+        catch (Exception e)
+        {
+            savedScenes.Add(sceneObjects);
+            sceneObjects = new Dictionary<int, bool>();
+            findObjects();
+        }
+        */
     }
 
-    void removeObjects()
+    static void removeObjects()
     {
         try
         {
-            foreach (KeyValuePair<int, bool> o in savedScenes[SceneManager.GetActiveScene().buildIndex])
+            foreach (KeyValuePair<int, bool> i in savedScenes[sceneNumber])
             {
-                if (o.Value)
+                if (i.Value)
                 {
-                    //removableObjectsInScene[o.Key].Die();
+                    foreach (RemovableObjects j in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
+                    {
+                        if (i.Key == j.objectId)
+                        {
+                            j.Die();
+                        }
+                    }
                 }
             }
         }
-        catch(Exception e)
+        catch
         {
-            Debug.Log(e);
+
+        }
+    }
+
+    public static void loadNewScene(string direction = "forward")
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        if (direction == "forward")
+        {
+            sceneNumber++;
+            reset(sceneNumber);
+
+            if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
+            {
+                //load scene
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+            else
+            {
+                Destroy(player);
+                SceneManager.LoadScene(1);
+            }
+        }
+        else
+        {
+            sceneNumber--;
+            reset(sceneNumber);
+            //load scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 }

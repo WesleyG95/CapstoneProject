@@ -41,7 +41,7 @@ public class EnemyAI : RemovableObjects
         {
             if (health <= 0)
             {
-                Destroy(gameObject);
+                Die();
             }
             playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
 

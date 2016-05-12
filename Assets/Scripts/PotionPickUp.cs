@@ -3,12 +3,10 @@ using System.Collections;
 
 public class PotionPickUp : RemovableObjects 
 {
-    void OnTriggerEnter2D(Collider2D other)
+    public void pickup()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            //other.GetComponent<Inventory>().HealthInv++;
-            //Destroy(gameObject);
-        }
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().HealthInv++;
+        RoomControl.sceneObjects[this.objectId] = true;
+        Die();
     }
 }

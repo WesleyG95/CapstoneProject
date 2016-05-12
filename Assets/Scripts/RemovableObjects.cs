@@ -5,17 +5,27 @@ public class RemovableObjects : MonoBehaviour {
 
     public static int count = 0;
     public int objectId;
-    public bool alive = true;
+    public bool die = false;
 
     public RemovableObjects()
     {
         objectId = count;
+        if(!RoomControl.sceneObjects.ContainsKey(objectId))
+        {
+            RoomControl.sceneObjects.Add(objectId, false);
+        }
+
         count++;
         //Debug.Log(objectId);
     }
 
-	// Use this for initialization
-	void Start () {
+    void OnLevelWasLoaded()
+    {
+        count = 0;
+    }
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
@@ -25,8 +35,8 @@ public class RemovableObjects : MonoBehaviour {
 
     public void Die()
     {
-        PlayerPrefs.SetInt(objectId.ToString(), 1);
-        PlayerPrefs.Save();
+        Debug.Log(objectId + " Died");
+        RoomControl.sceneObjects[this.objectId] = true;
         Destroy(gameObject);
     }
 }

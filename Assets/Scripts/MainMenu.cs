@@ -14,6 +14,7 @@ public class MainMenu : MonoBehaviour {
     {
         if (isStart)
         {
+            RoomControl.loadNewScene();
             Cursor.visible = false;
             SceneManager.LoadScene(3);
         }

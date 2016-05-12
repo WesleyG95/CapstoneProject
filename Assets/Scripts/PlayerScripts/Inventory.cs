@@ -49,8 +49,9 @@ public class Inventory : MonoBehaviour
     {
         if (other.gameObject.tag == "HealthPotion")
         {
-            HealthInv++;
-            Destroy(other.gameObject);
+            other.GetComponent<PotionPickUp>().pickup();
+            //HealthInv++;
+            //Destroy(other.gameObject);
         }
     }
 
