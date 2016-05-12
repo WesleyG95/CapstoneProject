@@ -29,7 +29,7 @@ public class RoomControl : MonoBehaviour {
             {
                 Debug.Log("object id added: " + o.objectId);
             }
-            //sceneObjects.Add(o.objectId, false);
+            sceneObjects.Add(o.objectId, false);
         }
     }
 
@@ -42,7 +42,7 @@ public class RoomControl : MonoBehaviour {
     {
         foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
         {
-            //Debug.Log("object id added: " + o.objectId);
+            Debug.Log("object id added: " + o.objectId);
             //sceneObjects.Add(o.objectId, false);
         }
     }
