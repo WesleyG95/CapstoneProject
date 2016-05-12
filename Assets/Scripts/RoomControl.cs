@@ -8,24 +8,17 @@ public class RoomControl : MonoBehaviour {
 
     public static Dictionary<int, bool> sceneObjects = new Dictionary<int, bool>();
     static List<Dictionary<int, bool>> savedScenes = new List<Dictionary<int, bool>>();
-    static int id = 0;
     static int sceneNumber = 0;
 
 	// Use this for initialization
 	void Start ()
     {
-        DontDestroyOnLoad(transform.gameObject);
         findObjects();
     }
 
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
-    }
-
-    void Update()
-    {
-        Debug.Log(sceneNumber);
     }
 
     void OnLevelWasLoaded()
@@ -37,31 +30,34 @@ public class RoomControl : MonoBehaviour {
     {
         foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
         {
+            Debug.Log("added: " + o.objectId);
             sceneObjects.Add(o.objectId, false);
         }
     }
 
-    public static void endScene()
+    static void reset(int sceneIndex)
     {
-        foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
+        bool previousSceneExists = false;
+
+        for (int i = 0; i < savedScenes.Count; i++)
         {
-            sceneObjects.Add(id, false);
-            id++;
+            if (i == sceneIndex)
+            {
+                previousSceneExists = true;
+            }
+            else if (i == SceneManager.GetActiveScene().buildIndex)
+            {
+                savedScenes[SceneManager.GetActiveScene().buildIndex] = sceneObjects;
+            }
         }
-    }
 
-    static void reset(int newSceneIndex)
-    {
-        id = 0;
-
-        if (savedScenes.Count > newSceneIndex)
+        if (previousSceneExists)
         {
-            //savedScenes[sceneNumber] = sceneObjects;
-            sceneObjects = savedScenes[newSceneIndex];
+            sceneObjects = savedScenes[sceneIndex];
         }
         else
         {
-            Debug.Log("scene " + newSceneIndex + " not found, creating new");
+            Debug.Log("scene " + sceneIndex + " not found, creating new");
             savedScenes.Add(sceneObjects);
             sceneObjects = new Dictionary<int, bool>();
             findObjects();
@@ -108,8 +104,6 @@ public class RoomControl : MonoBehaviour {
 
     public static void loadNewScene(string direction = "forward")
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         if (direction == "forward")
         {
             sceneNumber++;
@@ -122,7 +116,7 @@ public class RoomControl : MonoBehaviour {
             }
             else
             {
-                Destroy(player);
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
                 SceneManager.LoadScene(1);
             }
         }
