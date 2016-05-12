@@ -21,6 +21,18 @@ public class RoomControl : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
+    void Update()
+    {
+        foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
+        {
+            if (o.isActiveAndEnabled)
+            {
+                Debug.Log("object id added: " + o.objectId);
+            }
+            //sceneObjects.Add(o.objectId, false);
+        }
+    }
+
     void OnLevelWasLoaded()
     {
         removeObjects();
@@ -30,52 +42,47 @@ public class RoomControl : MonoBehaviour {
     {
         foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
         {
-            Debug.Log("added: " + o.objectId);
-            sceneObjects.Add(o.objectId, false);
+            //Debug.Log("object id added: " + o.objectId);
+            //sceneObjects.Add(o.objectId, false);
         }
     }
 
-    static void reset(int sceneIndex)
+    static void reset(int newSceneIndex, int currentSceneIndex)
     {
-        bool previousSceneExists = false;
+        int newSceneId = -1;
+        int currentSceneId = -1;
 
         for (int i = 0; i < savedScenes.Count; i++)
         {
-            if (i == sceneIndex)
+            if (i == newSceneIndex)
             {
-                previousSceneExists = true;
+                newSceneId = i;
             }
-            else if (i == SceneManager.GetActiveScene().buildIndex)
+            else if (i == currentSceneIndex)
             {
-                savedScenes[SceneManager.GetActiveScene().buildIndex] = sceneObjects;
+                currentSceneId = i;
             }
         }
 
-        if (previousSceneExists)
+        if (currentSceneId != -1)
         {
-            sceneObjects = savedScenes[sceneIndex];
+            savedScenes[currentSceneId] = sceneObjects;
         }
         else
         {
-            Debug.Log("scene " + sceneIndex + " not found, creating new");
             savedScenes.Add(sceneObjects);
-            sceneObjects = new Dictionary<int, bool>();
-            findObjects();
         }
 
-        /*
-        //if scene is not in dictionary, create new dictionary and find objects
-        try
+        if (newSceneId != -1)
         {
-            sceneObjects = savedScenes[newSceneIndex];
+            sceneObjects = savedScenes[newSceneId];
         }
-        catch (Exception e)
+        else
         {
             savedScenes.Add(sceneObjects);
             sceneObjects = new Dictionary<int, bool>();
             findObjects();
         }
-        */
     }
 
     static void removeObjects()
@@ -106,8 +113,8 @@ public class RoomControl : MonoBehaviour {
     {
         if (direction == "forward")
         {
+            reset(sceneNumber++, sceneNumber);
             sceneNumber++;
-            reset(sceneNumber);
 
             if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
             {
@@ -122,8 +129,8 @@ public class RoomControl : MonoBehaviour {
         }
         else
         {
+            reset(sceneNumber--, sceneNumber);
             sceneNumber--;
-            reset(sceneNumber);
             //load scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }

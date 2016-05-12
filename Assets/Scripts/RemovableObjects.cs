@@ -14,8 +14,6 @@ public class RemovableObjects : MonoBehaviour {
         {
             RoomControl.sceneObjects.Add(objectId, false);
         }
-
-        count++;
         //Debug.Log(objectId);
     }
 
@@ -26,6 +24,7 @@ public class RemovableObjects : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+
 	}
 	
 	// Update is called once per frame
