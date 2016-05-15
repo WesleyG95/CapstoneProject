@@ -9,6 +9,7 @@ public class RoomControl : MonoBehaviour {
     public static Dictionary<int, bool> sceneObjects = new Dictionary<int, bool>();
     static List<Dictionary<int, bool>> savedScenes = new List<Dictionary<int, bool>>();
     static int sceneNumber = 0;
+    static bool existsInList = true;
 
 	// Use this for initialization
 	void Start ()
@@ -21,29 +22,32 @@ public class RoomControl : MonoBehaviour {
         DontDestroyOnLoad(transform.gameObject);
     }
 
-    void Update()
-    {
-        foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
-        {
-            if (o.isActiveAndEnabled)
-            {
-                Debug.Log("object id added: " + o.objectId);
-            }
-            sceneObjects.Add(o.objectId, false);
-        }
-    }
-
     void OnLevelWasLoaded()
     {
-        removeObjects();
+        findObjects();
+
+        if (existsInList)
+        {
+            removeObjects();
+
+        }
     }
 
     public static void findObjects()
     {
+        int count = 0;
+
+        //assign all removable objects their ids
         foreach (RemovableObjects o in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
         {
-            Debug.Log("object id added: " + o.objectId);
-            //sceneObjects.Add(o.objectId, false);
+            o.objectId = count;
+            count++;
+            Debug.Log("Id assigned: " + o.objectId);
+
+            if (!existsInList)
+            {
+                sceneObjects.Add(o.objectId, false);
+            }
         }
     }
 
@@ -76,44 +80,42 @@ public class RoomControl : MonoBehaviour {
         if (newSceneId != -1)
         {
             sceneObjects = savedScenes[newSceneId];
+
+            existsInList = true;
         }
         else
         {
             savedScenes.Add(sceneObjects);
             sceneObjects = new Dictionary<int, bool>();
-            findObjects();
+            existsInList = false;
         }
     }
 
     static void removeObjects()
     {
-        try
+        foreach (KeyValuePair<int, bool> i in sceneObjects)
         {
-            foreach (KeyValuePair<int, bool> i in savedScenes[sceneNumber])
+            if (i.Value)
             {
-                if (i.Value)
+                foreach (RemovableObjects j in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
                 {
-                    foreach (RemovableObjects j in GameObject.FindObjectsOfType(typeof(RemovableObjects)))
+                    if (i.Key == j.objectId)
                     {
-                        if (i.Key == j.objectId)
-                        {
-                            j.Die();
-                        }
+                        Destroy(j.gameObject);
                     }
                 }
             }
-        }
-        catch
-        {
-
         }
     }
 
     public static void loadNewScene(string direction = "forward")
     {
+        int newSceneNumber = sceneNumber;
+
         if (direction == "forward")
         {
-            reset(sceneNumber++, sceneNumber);
+            newSceneNumber++;
+            reset(newSceneNumber, sceneNumber);
             sceneNumber++;
 
             if ((SceneManager.sceneCountInBuildSettings - 1) > SceneManager.GetActiveScene().buildIndex)
@@ -129,7 +131,8 @@ public class RoomControl : MonoBehaviour {
         }
         else
         {
-            reset(sceneNumber--, sceneNumber);
+            newSceneNumber--;
+            reset(newSceneNumber, sceneNumber);
             sceneNumber--;
             //load scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

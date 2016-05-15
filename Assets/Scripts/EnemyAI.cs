@@ -16,11 +16,6 @@ public class EnemyAI : RemovableObjects
 
     Animator anim;
 
-    public EnemyAI()
-    {
-        RemovableObjects.count++;
-    }
-
     void Start()
     {
         anim = GetComponent<Animator>();
