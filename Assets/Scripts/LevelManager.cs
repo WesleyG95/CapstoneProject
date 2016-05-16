@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour {
 
     public static void changeToPreviousLvl()
     {
+        RoomControl.loadNewScene();
+        Cursor.visible = false;
         SceneManager.LoadScene(lastLevel);
     }
 }

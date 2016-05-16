@@ -28,6 +28,8 @@ public class PlayerScript : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
+        //LevelManager.setLastLevel();
+
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
             //find entrance and exit
