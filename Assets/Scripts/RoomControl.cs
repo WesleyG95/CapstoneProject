@@ -11,6 +11,8 @@ public class RoomControl : MonoBehaviour {
     static int sceneNumber = 0;
     static bool existsInList = true;
 
+    private static RoomControl _instance;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -19,7 +21,18 @@ public class RoomControl : MonoBehaviour {
 
     void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        //check if there is another player in the scene
+        if (!_instance)
+        {
+            _instance = this;
+        }
+        else
+        {
+            //destroy the other player in the scene
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this);
     }
 
     void OnLevelWasLoaded()
