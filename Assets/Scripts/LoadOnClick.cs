@@ -6,6 +6,10 @@ public class LoadOnClick : MonoBehaviour {
 
     public void LoadScene(int level)
     {
+        if (gameObject.tag == "RoomController")
+        {
+            Destroy(gameObject);
+        }
         SceneManager.LoadScene(level);
     }
 
