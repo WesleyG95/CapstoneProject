@@ -14,6 +14,10 @@ public class MainMenu : MonoBehaviour {
     {
         if (isStart)
         {
+            if (gameObject.tag == "RoomController")
+            {
+                Destroy(gameObject);
+            }
             RoomControl.loadNewScene();
             Cursor.visible = false;
             SceneManager.LoadScene(3);
