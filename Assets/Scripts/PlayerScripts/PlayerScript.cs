@@ -28,22 +28,23 @@ public class PlayerScript : MonoBehaviour
 
     void OnLevelWasLoaded()
     {
-        //LevelManager.setLastLevel();
-
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
             //find entrance and exit
             spawnEntrance = GameObject.FindGameObjectWithTag("SpawnEntrance");
             spawnExit = GameObject.FindGameObjectWithTag("SpawnExit");
 
+            Vector3 spawnEntrancePos = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
+            Vector3 spawnExitPos = new Vector3(spawnExit.transform.position.x, spawnExit.transform.position.y, spawnExit.transform.position.z);
+
             //move player to spawn location
             if (direction == "forward")
             {
-                transform.position = new Vector3(spawnEntrance.transform.position.x, spawnEntrance.transform.position.y, spawnEntrance.transform.position.z);
+                transform.position = spawnEntrancePos;
             }
             else
             {
-                transform.position = new Vector3(spawnExit.transform.position.x, spawnExit.transform.position.y, spawnExit.transform.position.z);
+                transform.position = spawnExitPos;
             }
         }
     }
