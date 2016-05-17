@@ -24,11 +24,12 @@ public class LockedDoorScript : MonoBehaviour {
 	
 	void Update () 
     {
-        bool isEnemies = true;
+        bool isEnemies;
         isEnemies = checkForEnemies();
 
         if (!isEnemies)
         {
+            Debug.Log("no enemies");
             //open door
             GetComponent<SpriteRenderer>().sprite = openSprite;
             GetComponent<BoxCollider2D>().isTrigger = true;
