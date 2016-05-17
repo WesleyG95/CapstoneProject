@@ -4,21 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-    private static string lastLevel;
+    public static int lastLevel = 0;
+    private static string direction;
 
-    public static void setLastLevel(string level)
+    public static void setLastLevel(int level)
     {
         lastLevel = level;
     }
 
-    public static string getLastLevel()
-    {
-        return lastLevel;
-    }
-
     public static void changeToPreviousLvl()
     {
-        RoomControl.loadNewScene();
         Cursor.visible = false;
         SceneManager.LoadScene(lastLevel);
     }

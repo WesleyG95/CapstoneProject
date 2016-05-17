@@ -21,14 +21,14 @@ public class RoomControl : MonoBehaviour {
 
     void Awake()
     {
-        //check if there is another player in the scene
+        //check if there is another room controller in the scene
         if (!_instance)
         {
             _instance = this;
         }
         else
         {
-            //destroy the other player in the scene
+            //destroy the other room controller in the scene
             Destroy(this.gameObject);
         }
 
@@ -55,7 +55,6 @@ public class RoomControl : MonoBehaviour {
         {
             o.objectId = count;
             count++;
-            Debug.Log("Id assigned: " + o.objectId);
 
             if (!existsInList)
             {

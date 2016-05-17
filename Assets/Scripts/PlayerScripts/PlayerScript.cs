@@ -164,6 +164,7 @@ public class PlayerScript : MonoBehaviour
         //check if trigger is a door
         if (collision.gameObject.tag == "DoorNext" || collision.gameObject.tag == "LockedDoorNext")
         {
+            LevelManager.setLastLevel(SceneManager.GetActiveScene().buildIndex);
             direction = "forward";
             RoomControl.loadNewScene(direction);
         }

@@ -7,6 +7,8 @@ public class PauseControl : MonoBehaviour
 {
     GameObject[] pauseObjects;
 
+    public int firstLevelId = 4;
+
     // Use this for initialization
     void Start()
     {
@@ -32,14 +34,6 @@ public class PauseControl : MonoBehaviour
                 hidePaused();
             }
         }
-    }
-
-    //reloads level
-    public void Reload()
-    {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().direction = "forward";
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Cursor.visible = false;
     }
 
     //controls the pausing of the scene

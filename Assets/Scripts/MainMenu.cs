@@ -6,10 +6,6 @@ public class MainMenu : MonoBehaviour {
     public bool isStart;
     public bool isQuit;
 
-	void Start () {
-
-	}
-
     void OnMouseUp()
     {
         if (isStart)
@@ -22,9 +18,5 @@ public class MainMenu : MonoBehaviour {
         {
             Application.Quit();
         }
-    } 
-
-    void Update () {
-	
-	}
+    }
 }
