@@ -11,6 +11,11 @@ public class RoomControl : MonoBehaviour {
     static int sceneNumber = 0;
     static bool existsInList = true;
 
+    public static int firstLevelScene = 4;
+    public static int gameOverScene = 3;
+    public static int creditsScene = 2;
+    public static int mainMenuScene = 0;
+
     private static RoomControl _instance;
 
 	// Use this for initialization

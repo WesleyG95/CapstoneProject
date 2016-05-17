@@ -20,8 +20,9 @@ public class ScrollingText : MonoBehaviour {
 	}
     IEnumerator WaitForFinish()
     {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(23);
 
-        SceneManager.LoadScene("mainmenu2");
+        Cursor.visible = true;
+        SceneManager.LoadScene(RoomControl.mainMenuScene);
     }
 }

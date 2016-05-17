@@ -74,19 +74,19 @@ public class PlayerScript : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex >= 3)
         {
+            //check if player is dead
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                SceneManager.LoadScene(RoomControl.gameOverScene);
+            }
+
             //get input
             moveH = Input.GetAxis("Horizontal");
             moveV = Input.GetAxis("Vertical");
 
             //change health in the ui
             GameObject.FindGameObjectWithTag("UIHealth").GetComponent<Text>().text = "Health: " + health.ToString();
-
-            //check if player is dead
-            if (health <= 0)
-            {
-                Destroy(gameObject);
-                SceneManager.LoadScene(2);
-            }
 
             //if moving, check direction
             if (moveV != 0 || moveH != 0)

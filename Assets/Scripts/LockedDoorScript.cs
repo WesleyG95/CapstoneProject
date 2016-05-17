@@ -29,7 +29,6 @@ public class LockedDoorScript : MonoBehaviour {
 
         if (!isEnemies)
         {
-            Debug.Log("no enemies");
             //open door
             GetComponent<SpriteRenderer>().sprite = openSprite;
             GetComponent<BoxCollider2D>().isTrigger = true;

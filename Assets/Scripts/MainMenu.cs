@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour {
         {
             RoomControl.loadNewScene();
             Cursor.visible = false;
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(RoomControl.firstLevelScene);
         }
         if (isQuit)
         {

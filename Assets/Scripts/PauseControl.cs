@@ -77,6 +77,6 @@ public class PauseControl : MonoBehaviour
     public void LoadLevel()
     {
         Destroy(GameObject.FindGameObjectWithTag("Player"));
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(RoomControl.mainMenuScene);
     }
 }

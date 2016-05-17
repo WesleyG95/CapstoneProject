@@ -115,7 +115,7 @@ public class TextAnimation : MonoBehaviour
                 }
                 else if ((spacePressedCount == 3) && (text == storyFinal2))
                 {
-                    SceneManager.LoadScene("Credits");
+                    SceneManager.LoadScene(RoomControl.creditsScene);
                 }
                 else { Debug.Log("Error- final storyblock"); }
             }
