@@ -50,7 +50,7 @@ public class TextAnimation : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Label(new Rect(100, 80, 1700, 2000), text, font);
+        GUI.Label(new Rect(100, 80, 1500, 2000), text, font);
         GUI.Label(new Rect(1000, 450, 200, 100), skipText, skip);
     }
 
