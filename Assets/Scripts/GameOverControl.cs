@@ -23,7 +23,7 @@ public class GameOverControl : MonoBehaviour
         }
         if (isQuitToMenu)
         {
-            SceneManager.LoadScene("mainmenu2");
+            SceneManager.LoadScene(RoomControl.mainMenuScene);
         }
     }
 }
