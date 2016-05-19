@@ -18,7 +18,6 @@ public class GameOverControl : MonoBehaviour
         if (isRestartCheckpoint)
         {
             Cursor.visible = false;
-            //this is not working
             LevelManager.changeToPreviousLvl();
         }
         if (isQuitToMenu)

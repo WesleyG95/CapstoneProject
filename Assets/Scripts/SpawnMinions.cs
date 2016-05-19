@@ -10,12 +10,6 @@ public class SpawnMinions : MonoBehaviour {
     {
         InvokeRepeating("spawnMinions", 5f, 5f);
 	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	    
-	}
 
     void spawnMinions()
     {

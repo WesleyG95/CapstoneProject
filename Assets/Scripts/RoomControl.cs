@@ -47,7 +47,6 @@ public class RoomControl : MonoBehaviour {
         if (existsInList)
         {
             removeObjects();
-
         }
     }
 

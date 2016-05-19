@@ -21,10 +21,4 @@ public class MouseHover : MonoBehaviour {
     {
         selection.color = Color.gray;
     }
-
-    //Original for 3D text: GetComponent<Renderer>().material.color
-    // Update is called once per frame
-    void Update () {
-	
-	}
 }

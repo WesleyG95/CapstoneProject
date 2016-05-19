@@ -13,10 +13,9 @@ public class ScrollingText : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
         camera.transform.Translate(Vector2.down * Time.deltaTime * speed);
-
-        
 	}
     IEnumerator WaitForFinish()
     {
