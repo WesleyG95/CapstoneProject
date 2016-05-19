@@ -46,6 +46,7 @@ public class TextAnimation : MonoBehaviour
             text += letter;
             yield return new WaitForSeconds(letterPause);
         }
+        spacePressed();
     }
 
     void OnGUI()
