@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PotionPickUp : RemovableObjects 
 {
     public void pickup()
     {
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>().HealthInv++;
+        Inventory playerInv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        playerInv.HealthInv++;
+        GameObject.FindGameObjectWithTag("UIPotions").GetComponent<Text>().text = "X " + playerInv.HealthInv;
         RoomControl.sceneObjects[this.objectId] = true;
         Die();
     }

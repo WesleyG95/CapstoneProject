@@ -85,8 +85,9 @@ public class PlayerScript : MonoBehaviour
             moveH = Input.GetAxis("Horizontal");
             moveV = Input.GetAxis("Vertical");
 
-            //change health in the ui
+            //change health and potions in the ui
             GameObject.FindGameObjectWithTag("UIHealth").GetComponent<Text>().text = "Health: " + health.ToString();
+            GameObject.FindGameObjectWithTag("UIPotions").GetComponent<Text>().text = "X " + this.GetComponentInParent<Inventory>().HealthInv;
 
             //if moving, check direction
             if (moveV != 0 || moveH != 0)

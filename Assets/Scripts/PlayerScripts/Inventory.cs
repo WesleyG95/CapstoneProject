@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class Inventory : MonoBehaviour
         }
 
         HealthInv--;
+        GameObject.FindGameObjectWithTag("UIPotions").GetComponent<Text>().text = "X " + HealthInv;
     }
 }
 
