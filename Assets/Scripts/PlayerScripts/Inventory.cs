@@ -42,7 +42,6 @@ public class Inventory : MonoBehaviour
         }
 
         HealthInv--;
-        GameObject.FindGameObjectWithTag("UIPotions").GetComponent<Text>().text = "X " + HealthInv;
     }
 }
 

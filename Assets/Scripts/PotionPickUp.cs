@@ -8,7 +8,6 @@ public class PotionPickUp : RemovableObjects
     {
         Inventory playerInv = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         playerInv.HealthInv++;
-        GameObject.FindGameObjectWithTag("UIPotions").GetComponent<Text>().text = "X " + playerInv.HealthInv;
         RoomControl.sceneObjects[this.objectId] = true;
         Die();
     }
