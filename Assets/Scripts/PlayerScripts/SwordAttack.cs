@@ -60,12 +60,19 @@ public class SwordAttack : MonoBehaviour {
     {
         if (enemy.tag == "Enemy")
         {
-            enemy.GetComponent<EnemyAI>().health -= damage;
+            try
+            {
+                enemy.GetComponent<EnemyAI>().health -= damage;
 
-            float xdif = enemy.transform.position.x - transform.position.x;
-            float ydif = enemy.transform.position.y - transform.position.y;
+                float xdif = enemy.transform.position.x - transform.position.x;
+                float ydif = enemy.transform.position.y - transform.position.y;
 
-            enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
+                enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
+            }
+            catch
+            {
+                enemy.GetComponent<SecretPotion>().health -= damage;
+            }
         }
     }
 
