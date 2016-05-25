@@ -23,12 +23,6 @@ public class SecretPotion : RemovableObjects
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    void Update()
-    {
-       
-        
-    }
-
     void FixedUpdate()
     {
         if (target != null)
@@ -40,13 +34,5 @@ public class SecretPotion : RemovableObjects
             playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
 
         }    
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
     }
 }
