@@ -70,7 +70,7 @@ public class SwordAttack : MonoBehaviour {
         }
         else if (collision.tag == "RemovableFurniture")
         {
-            collision.GetComponent<SecretPotion>().health -= damage;
+            collision.GetComponent<RemovableFurniture>().health -= damage;
         }
     }
 

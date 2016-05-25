@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class SecretPotion : RemovableObjects
+public class RemovableFurniture : RemovableObjects
 {
     public Transform target;
     public int moveSpeed = 1;
