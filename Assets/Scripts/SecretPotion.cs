@@ -7,7 +7,7 @@ public class SecretPotion : RemovableObjects
     public Transform target;
     public int moveSpeed = 1;
     public int viewDistance = 3;
-    public int health = 100;
+    public int health = 10;
     public int damage = 10;
     public bool facingRight = true;
 
@@ -19,7 +19,6 @@ public class SecretPotion : RemovableObjects
 
     void Start()
     {
- 
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 

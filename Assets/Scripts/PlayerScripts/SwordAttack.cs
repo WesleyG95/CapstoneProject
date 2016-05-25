@@ -56,23 +56,21 @@ public class SwordAttack : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D enemy)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        if (enemy.tag == "Enemy")
+        Debug.Log("Collision");
+        if (collision.tag == "Enemy")
         {
-            try
-            {
-                enemy.GetComponent<EnemyAI>().health -= damage;
+            collision.GetComponent<EnemyAI>().health -= damage;
 
-                float xdif = enemy.transform.position.x - transform.position.x;
-                float ydif = enemy.transform.position.y - transform.position.y;
+            float xdif = collision.transform.position.x - transform.position.x;
+            float ydif = collision.transform.position.y - transform.position.y;
 
-                enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
-            }
-            catch
-            {
-                enemy.GetComponent<SecretPotion>().health -= damage;
-            }
+            collision.GetComponent<Rigidbody2D>().AddForce(new Vector2(xdif, ydif).normalized * 400);
+        }
+        else if (collision.tag == "RemovableFurniture")
+        {
+            collision.GetComponent<SecretPotion>().health -= damage;
         }
     }
 
