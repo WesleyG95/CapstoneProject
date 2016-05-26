@@ -44,7 +44,6 @@ public class TextAnimation : MonoBehaviour
     //types the text to the screen
     IEnumerator TypeText(string story)
     {
-        Debug.Log("type text started");
         foreach (char letter in story.ToCharArray())
         {
             text += letter;

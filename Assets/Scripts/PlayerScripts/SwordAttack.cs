@@ -58,7 +58,6 @@ public class SwordAttack : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision");
         if (collision.tag == "Enemy")
         {
             collision.GetComponent<EnemyAI>().health -= damage;
@@ -77,9 +76,7 @@ public class SwordAttack : MonoBehaviour {
     void attack(string direction)
     {
         int sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
-        float swordZ;
 
-        swordZ = transform.eulerAngles.z;
         isAttacking = true;
 
         if(startAttack)

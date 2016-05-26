@@ -11,7 +11,6 @@ public class RemovableFurniture : RemovableObjects
     public int damage = 10;
     public bool facingRight = true;
 
-    float playerDistance;
     float moveH;
     float moveV;
 
@@ -30,7 +29,6 @@ public class RemovableFurniture : RemovableObjects
             {
                 Die();
             }
-            playerDistance = Mathf.Abs((target.position - transform.position).x) + Mathf.Abs((target.position - transform.position).y);
 
         }    
     }
