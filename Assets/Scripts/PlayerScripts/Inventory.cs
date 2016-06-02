@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public int HealthInv = 0;
-    public int PowerInv = 0;
     public int HealthPotionHeal = 25;
     PlayerScript playerScript;
 
